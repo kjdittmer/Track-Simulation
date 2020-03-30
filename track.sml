@@ -17,4 +17,5 @@ datatype event = Race | Relay | Jump | Throw | Multi;
 
 datatype athlete = Name of string * team * (event * real) list;
 
-
+fun roster (a,[])= []
+|roster(a, (n,t,e,r)::tail)= if a = t then (n,t,e,r)::roster(a, tail) else roster(a, tail);

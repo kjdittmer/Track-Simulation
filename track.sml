@@ -22,6 +22,14 @@ val ChrisAlbert = ("Chris Albert", Wheaton, [(OneHundred, 11.1), (FourHundred, 5
 val PaulAmstutz = ("Paul Amstutz", Wheaton, [(TwoHundred, 22.68), (FourHundred, 50.09), (EightHundred, 2.01)]);
 val EthanBert = ("Ethan Bert", Wheaton, )[(EightHundred, 2.07)]);
 
+val EthanBert = ("Ethan Bert", Wheaton, [(EightHundred, 2.07)]);
+val ChristianBooth = ("Christian Booth", Wheaton, [(FifteenHundred, 4.58), (ThreeThousand, 10.47)]);
+val DavidBradley = ("David Bradley", Wheaton, [(TwoHundred, 24.9), (poleVault, 4.78)]);
+val PeterBradley = ("Peter Bradley", Wheaton, [(TwoHundred, 26.26), (poleVault, 4.55)]);
+val JoeCaraway = ("Joe Caraway", Wheaton, [(EightHundred, 2.00), (FifteenHundred, 4.12)]);
+val IsaiahClauson = ("Isaiah Clauson", Wheaton, [(TwoHundred, 23.64), (FourHundred, 54.85), (highJump, 1.59),\
+ (poleVault, 2.95), (longJump, 6.56), (shotPut, 7.83), (Heptathalon, 3892)]);
+
 fun mkTList([], r) = []
 | mkTList (athlete(name, team, (event, time))::rest, race) = 
   if event = race then (time, name)::mkTList(rest, race)
@@ -49,3 +57,4 @@ fun mergesort [] = []
   in 
   merge (mergesort H, mergesort B)
   end;
+

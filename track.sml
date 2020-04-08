@@ -5,7 +5,7 @@ datatype team = Augustana | Carroll | Carthage | Elmhurst | IllinoisWesleyan | M
 
 datatype event = EightHundred | FifteenHundred | FiveK | FourHundred | FourHundredHurdles | OneHundred | OneHundredHurdles | OneTenHurdles | TenK| ThreeThousand | ThreeThousandSteepleChase | TwoHundred | DMR | FourByEight | FourByFour | SMR | highJump | longJump | poleVault | tripleJump | discus | hammerThrow | javelin | shotPut | Decathalon | Heptathalon;
 
-datatype athlete = Athlete of string * team * (event * real) list;
+datatype Athlete = Athlete of string * team * (event * real) list;
 
 val GrantAdams = Athlete("Grant Adams", Wheaton,[(EightHundred, 1.56), (FifteenHundred, 4.15), (ThreeThousandSteepleChase, 10.32)]);
 val ChrisAlbert = Athlete("Chris Albert", Wheaton, [(OneHundred, 11.1), (FourHundred, 52.10), (FifteenHundred, 5.24), (OneTenHurdles, 19.83), (highJump, 1.58), (poleVault, 3.60), (longJump, 6.19), (shotPut, 9.64), (discus, 29.04), (javelin, 31.42), (Decathalon, 4927.0)]);

@@ -31,15 +31,15 @@ val IsaiahClauson = Athlete("Isaiah Clauson", Wheaton, [(TwoHundred, 23.64), (Fo
 fun mkTList([], r) = []
   | mkTList (Athlete(name, team, (athRace, time)::rest)::athletes, scoreRace) =
 	  let fun findEvent([])= []
-             | findEvent((athRace, time)::rest) = if athRace = scoreRace then [(time, name)] else findEvent(rest)
+             | findEvent((athRace, time)::rest) = if athRace = scoreRace then [(time, name, team)] else findEvent(rest)
         in findEvent((athRace, time)::rest)@ mkTList(athletes, scoreRace) end;
 
-fun remove((a,b), []) = []
-|remove((a,b), (c,d)::rest) = if b=d then remove((a,b),rest) else (c,d):: remove((a,b), rest);
+fun remove((removeTime,removeName,removeTeam), []) = []
+|remove((removeTime,removeName,removeTeam), (time1,name1,team1)::rest) = if removeName=name1 then remove((removeTime,removeName,removeTeam),rest) else (time1,name1,team1):: remove((removeTime,removeName,removeTeam), rest);
 
-fun smallest([]) = []
-| smallest((a,b)::(c,d)::rest) =
-let fun smaller((e,f), []) = (e,f)
-	| smaller((e,f), (g,h)::tail) = if e<g then smaller((e,f), tail) else smaller ((g,h), tail)
-in smaller((a,b), (c,d)::rest) end;
+fun smallest((time1,name1,team1)::(time2,name2,team2)::rest) =
+let fun smaller((time3,name3,team3), []) = (time3,name3,team3)
+	| smaller((time3,name3,team3), (time4,name4,team4)::tail) = if time3<time4 then smaller((time3,name3,team3), tail) else smaller ((time4,team4,name4), tail)
+in smaller((time1,name1,team1), (time2,name2,team2)::rest) end
+| smallest((time1,name1,team1)::rest)=(time1,name1,team1);
 

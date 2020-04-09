@@ -3,18 +3,6 @@
 
 datatype team = Augustana | Carroll | Carthage | Elmhurst | IllinoisWesleyan | Millikin | NorthCentral | NorthPark | Wheaton ;
 
-datatype Race = OneHundred | OneHundredHurdles | OneTenHurdles | TwoHundred | FourHundred | FourHundredHurdles | EightHundred | FifteenHundred | ThreeThousand | ThreeThousandSteepleChase | FiveK | TenK;
-
-datatype Relay = FourByFour | FourByEight | SMR | DMR;
-
-datatype Jump = longJump | highJump | tripleJump  | poleVault;
-
-datatype Throw = shotPut | discus | javelin | hammerThrow;
-
-datatype Multi = Heptathalon | Decathalon;
-
-datatype Event = Race | Relay | Jump | Throw | Multi;
-
 datatype Event = OneHundred | OneHundredHurdles | OneTenHurdles | TwoHundred | FourHundred | FourHundredHurdles | EightHundred | FifteenHundred | ThreeThousand | ThreeThousandSteepleChase | FiveK | TenK | FourByFour | FourByEight | SMR | DMR |longJump | highJump | tripleJump  | poleVault |shotPut | discus | javelin | hammerThrow |Heptathalon | Decathalon;
 
 
@@ -40,31 +28,17 @@ val IsaiahClauson = Athlete("Isaiah Clauson", Wheaton, [(TwoHundred, 23.64), (Fo
  val TrevorGabriele = Athlete("Trevor Gabriel", Wheaton, [(shotPut, 13.24)]);
 
 fun mkTList([], r) = []
-| mkTList (Athlete(string, Team, (Event, real)::rest)::athletes, Race) = 
-	let fun findEvent([])= []
-	| findEvent((Event, real)::rest) = if Event = Race then (real, string) else findEvent(rest)
-	in findEvent((Event, real)::rest)):: mkTList(athletes, Race) end;
+  | mkTList (Athlete(name, team, (athRace, time)::rest)::athletes, scoreRace) =
+	  let fun findEvent([])= []
+             | findEvent((athRace, time)::rest) = if athRace = scoreRace then [(time, name)] else findEvent(rest)
+        in findEvent((athRace, time)::rest)@ mkTList(athletes, scoreRace) end;
 
-fun merge([], (y, yy)) = (y, yy)
-| merge((x, xx), []) = (x, xx)
-| merge((x, xx)::restX, (y, yy)::restY) = 
-  if x < y then (x, xx)::merge(restX, (y, yy)::restY)
-  else (y, yy)::merge((x, xx)::restX, restY);
+fun remove((a,b), []) = []
+|remove((a,b), (c,d)::rest) = if b=d then remove((a,b),rest) else (c,d):: remove((a,b), rest);
 
-fun split ([]) = ([], [])
-| split ([(a,aa)]) = ([(a,aa)], [])
-| split ((a, aa)::(b, bb)::rest) = 
-  let val (H, B) =
-      split rest in ((a, aa)::H, (b, bb)::B)
-      end;
-
-fun mergesort [] = []
-| mergesort [(a, b)] = [(a, b)]
-| mergesort [(a, aa), (b, bb)] = if a <= b then [(a, aa),(b, bb)]
-  	    	      else [(b,bb),(aaa)]
-| mergesort L = 
-  let val (H, B) = split L
-  in 
-  merge (mergesort H, mergesort B)
-  end;
+fun smallest([]) = []
+| smallest((a,b)::(c,d)::rest) =
+let fun smaller((e,f), []) = (e,f)
+	| smaller((e,f), (g,h)::tail) = if e<g then smaller((e,f), tail) else smaller ((g,h), tail)
+in smaller((a,b), (c,d)::rest) end;
 

@@ -42,8 +42,17 @@ val MichaelLarkin = Athlete("Michael Larkin", Wheaton, [(FifteenHundred, 4.07), 
 val AndrewLauber = Athlete("Andrew Lauber", Wheaton, [(TwoHundred, 22.93), (FourHundred, 49.41), (EightHundred, 2.10)]);
 val AndyMargason = Athlete("Andy Margason", Wheaton, [(TwoHundred, 24.23), (FourHundred, 53.37), (EightHundred, 2.06), (OneHundredHurdles, 16.07), (FourHundredHurdles, 56.12), (longJump, 6.07)]);
 val SethMassot = Athlete("Seth Massot", Wheaton, [(FifteenHundred, 4.14), (ThreeThousand, 8.40), (FiveK, 14.48), (ThreeThousandSteepleChase, 9.35)]);
-val StephenMathew = Athlete("StephenMathew", Wheaton, [(highJump, 1.97)]);
+val StephenMathew = Athlete("Stephen Mathew", Wheaton, [(highJump, 1.97)]);
 val DanielMorken = Athlete("Daniel Morken", Wheaton, [(FifteenHundred, 4.09), (ThreeThousandSteepleChase, 10.33)]);
+
+val MichaelJohnson = Athlete("Michael Johnson", Augustana, [(TwoHundred, 21.69),(OneHundred, 10.66)]);
+val IanRothery = Athlete("Ian Rothery", Augustana, [(FourHundred, 50.08)]);
+val JoshTeets = Athlete("Josh Teets", Augustana, [(EightHundred, 1.54)]);
+val BrandonWilkerson = Athlete("Brandon Wilkerson", Augustana, [(FiveK, 14.52)]);
+val CarlSchoenfield = Athlete("Carl Schoenfield", Augustana, [(TenK, 32.07)]);
+val RyanThornton = Athlete("Ryan Thornton", Augustana, [(highJump, 2.03)]);
+
+
 
 fun mkTList([], r) = []
 | mkTList (Athlete(string, Team, (Event, real)::rest)::athletes, Race) = 

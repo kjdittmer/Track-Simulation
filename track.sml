@@ -89,7 +89,6 @@ fun mergesort [] = []
 
 val totalAthleteList = [GrantAdams,ChrisAlbert,PaulAmstutz,EthanBert,ChristianBooth,DavidBradley,PeterBradley,JoeCaraway,IsaiahClauson,RyanCross,DonCrowder,JonathanDahlager,DavidDischinger,JeremeyEarnest,AbramErickson,ThomasEverest,PaulFay,TrevorGabriele, JPGilbert, EthanHarsted, JakeHibben, RobertIrwin, BenJackson, DerekJohanik, LarsJohnson, JonahJones, ElliotKim, MichaelKitchen, JasonKoehler, MichaelLarkin, AndrewLauber, AndyMargason, SethMassot, StephenMathew, DanielMorken];
 
-
 fun remove((removeTime,removeName,removeTeam), []) = []
 |remove((removeTime,removeName,removeTeam), (time1,name1,team1)::rest) = if removeName=name1  then remove((removeTime,removeName,removeTeam),rest) else (time1,name1,team1):: remove((removeTime,removeName,removeTeam), rest);
 
@@ -105,6 +104,8 @@ let fun larger((time3,name3,team3), []) = (time3,name3,team3)
 in larger((time1,name1,team1), (time2,name2,team2)::rest) end
 | largest((time1,name1,team1)::rest)=(time1,name1,team1);
 
+
+
 fun sortsmall([]) =[]
 | sortsmall(list)= smallest(list)::sortsmall(remove((smallest(list)),list));
 
@@ -119,4 +120,14 @@ fun mkTList([], r) = []
  if scoreRace = OneHundred orelse scoreRace = OneHundredHurdles orelse scoreRace = OneTenHurdles orelse scoreRace = TwoHundred orelse scoreRace = FourHundred orelse scoreRace = FourHundredHurdles orelse scoreRace = EightHundred orelse scoreRace =  FifteenHundred orelse scoreRace = ThreeThousand orelse scoreRace =  ThreeThousandSteepleChase orelse scoreRace = FiveK orelse scoreRace =  TenK 
  then sortsmall(findEvent((athRace, time)::rest)@ mkTList(athletes, scoreRace)) 
 else sortlarge(findEvent((athRace, time)::rest)@ mkTList(athletes, scoreRace)) 
+ end;
+
+ fun score([], team)= 0
+ | score(sortedList, team)=
+ 	let fun nextpoints(0)= 0 
+ 	|nextpoints(a) = if a<=6 then a-1 else a-2;
+ 	fun helpscore([], points)=0
+ 	|helpscore(partialList, 0) = 0
+ 	|helpscore((b,c,d)::rest, points)= if d=team then points+helpscore(rest, nextpoints(points)) else helpscore(rest, nextpoints(points))
+ in helpscore(sortedList, 10)
  end;

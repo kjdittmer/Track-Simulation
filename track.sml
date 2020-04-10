@@ -43,8 +43,9 @@ val AndrewLauber = Athlete("Andrew Lauber", Wheaton, [(TwoHundred, 22.93), (Four
 val AndyMargason = Athlete("Andy Margason", Wheaton, [(TwoHundred, 24.23), (FourHundred, 53.37), (EightHundred, 2.06), (OneHundredHurdles, 16.07), (FourHundredHurdles, 56.12), (longJump, 6.07)]);
 val SethMassot = Athlete("Seth Massot", Wheaton, [(FifteenHundred, 4.14), (ThreeThousand, 8.40), (FiveK, 14.48), (ThreeThousandSteepleChase, 9.35)]);
 val StephenMathew = Athlete("StephenMathew", Wheaton, [(highJump, 1.97)]);
+val DanielMorken = Athlete("Daniel Morken", Wheaton, [(FifteenHundred, 4.09), (ThreeThousandSteepleChase, 10.33)]);
 
-val totalAthleteList = [GrantAdams,ChrisAlbert,PaulAmstutz,EthanBert,ChristianBooth,DavidBradley,PeterBradley,JoeCaraway,IsaiahClauson,RyanCross,DonCrowder,JonathanDahlager,DavidDischinger,JeremeyEarnest,AbramErickson,ThomasEverest,PaulFay,TrevorGabriele, JPGilbert, EthanHarsted, JakeHibben, RobertIrwin, BenJackson, DerekJohanik, LarsJohnson, JonahJones, ElliotKim, MichaelKitchen, JasonKoehler, MichaelLarkin, AndrewLauber, AndyMargason, SethMassot, StephenMathew];
+val totalAthleteList = [GrantAdams,ChrisAlbert,PaulAmstutz,EthanBert,ChristianBooth,DavidBradley,PeterBradley,JoeCaraway,IsaiahClauson,RyanCross,DonCrowder,JonathanDahlager,DavidDischinger,JeremeyEarnest,AbramErickson,ThomasEverest,PaulFay,TrevorGabriele, JPGilbert, EthanHarsted, JakeHibben, RobertIrwin, BenJackson, DerekJohanik, LarsJohnson, JonahJones, ElliotKim, MichaelKitchen, JasonKoehler, MichaelLarkin, AndrewLauber, AndyMargason, SethMassot, StephenMathew, DanielMorken];
 
 fun mkTList([], r) = []
   | mkTList (Athlete(name, team, (athRace, time)::rest)::athletes, scoreRace) =
@@ -57,7 +58,7 @@ fun remove((removeTime,removeName,removeTeam), []) = []
 
 fun smallest((time1,name1,team1)::(time2,name2,team2)::rest) =
 let fun smaller((time3,name3,team3), []) = (time3,name3,team3)
-	| smaller((time3,name3,team3), (time4,name4,team4)::tail) = if time3<time4 then smaller((time3,name3,team3), tail) else smaller ((time4,team4,name4), tail)
+	| smaller((time3,name3,team3), (time4,name4,team4)::tail) = if round(time3*100.0) < round(time4*100.0) then smaller((time3,name3,team3), tail) else smaller ((time4,name4, team4), tail)
 in smaller((time1,name1,team1), (time2,name2,team2)::rest) end
 | smallest((time1,name1,team1)::rest)=(time1,name1,team1);
 

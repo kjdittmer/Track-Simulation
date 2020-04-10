@@ -52,9 +52,11 @@ val BrandonWilkerson = Athlete("Brandon Wilkerson", Augustana, [(FiveK, 14.52)])
 val CarlSchoenfield = Athlete("Carl Schoenfield", Augustana, [(TenK, 32.07)]);
 val RyanThornton = Athlete("Ryan Thornton", Augustana, [(highJump, 2.03)]);
 
-val totalAthleteList = [GrantAdams,ChrisAlbert,PaulAmstutz,EthanBert,ChristianBooth,DavidBradley,PeterBradley,JoeCaraway,IsaiahClauson,RyanCross,DonCrowder,JonathanDahlager,DavidDischinger,JeremeyEarnest,AbramErickson,ThomasEverest,PaulFay,TrevorGabriele, JPGilbert, EthanHarsted, JakeHibben, RobertIrwin, BenJackson, DerekJohanik, LarsJohnson, JonahJones, ElliotKim, MichaelKitchen, JasonKoehler, MichaelLarkin, AndrewLauber, AndyMargason, SethMassot, StephenMathew, DanielMorken, MichaelJohnson, IanRothery,JosjTeets, BrandonWilkerson, CarlSchoenfield, RyanThornton];
+val totalAthleteList = [GrantAdams,ChrisAlbert,PaulAmstutz,EthanBert,ChristianBooth,DavidBradley,PeterBradley,JoeCaraway,IsaiahClauson,RyanCross,DonCrowder,JonathanDahlager,DavidDischinger,JeremeyEarnest,AbramErickson,ThomasEverest,PaulFay,TrevorGabriele, JPGilbert, EthanHarsted, JakeHibben, RobertIrwin, BenJackson, DerekJohanik, LarsJohnson, JonahJones, ElliotKim, MichaelKitchen, JasonKoehler, MichaelLarkin, AndrewLauber, AndyMargason, SethMassot, StephenMathew, DanielMorken, MichaelJohnson, IanRothery,JoshTeets, BrandonWilkerson, CarlSchoenfield, RyanThornton];
 
 val totalTeamList = [Augustana, Carroll, Carthage, Elmhurst, IllinoisWesleyan, Millikin, NorthCentral, NorthPark, Wheaton];
+
+val totalEventList= [OneHundred, OneHundredHurdles, OneTenHurdles, TwoHundred, FourHundred, FourHundredHurdles,  EightHundred, FifteenHundred, ThreeThousand, ThreeThousandSteepleChase, FiveK, TenK,  longJump, highJump, tripleJump, poleVault, shotPut, discus, javelin, hammerThrow, Heptathalon, Decathalon];
 
 fun remove((removeTime,removeName,removeTeam), []) = []
 |remove((removeTime,removeName,removeTeam), (time1,name1,team1)::rest) = if removeName=name1  then remove((removeTime,removeName,removeTeam),rest) else (time1,name1,team1):: remove((removeTime,removeName,removeTeam), rest);
@@ -74,10 +76,10 @@ in larger((time1,name1,team1), (time2,name2,team2)::rest) end
 
 
 fun sortsmall([]) =[]
-| sortsmall(list)= smallest(list)::sortsmall(remove((smallest(list)),list));
+| sortsmall(list)= smallest(list)::sortsmall(remove(smallest(list),list));
 
 fun sortlarge([]) =[]
-| sortlarge(list)= largest(list)::sortlarge(remove((largest(list)),list));
+| sortlarge(list)= largest(list)::sortlarge(remove(largest(list),list));
 
 fun mkTList([], r) = []
   | mkTList (Athlete(name, team, (athRace, time)::rest)::athletes, scoreRace) =
@@ -99,3 +101,23 @@ else sortlarge(findEvent((athRace, time)::rest)@ mkTList(athletes, scoreRace))
  in helpscore(sortedList, 10)
  end;
 
+fun scoreEvents(athleteList, [], team)= 0
+|scoreEvents(athleteList, event::eventList, team)= scoreEvent(mkTList(athleteList, event), team) +scoreEvents(athleteList, eventList, team);
+
+
+fun removeScore((removeTeam, removePoints),[]) = []
+|removeScore((removeTeam, removePoints),(teamName, teamScore)::scoredMeet) = if teamName = removeTeam then removeScore((removeTeam, removePoints),scoredMeet) else (teamName, teamScore)::removeScore((removeTeam, removePoints),scoredMeet);
+
+fun 
+bestTeam((teamName1, teamScore1)::(teamName2, teamScore2)::rest)=
+let fun better((teamName3, teamScore3), [])= (teamName3, teamScore3)
+|better((teamName3, teamScore3), (teamName4, teamScore4)::tail) = if teamScore3 > teamScore4 then better((teamName3, teamScore3), tail) else better((teamName4, teamScore4), tail)
+in better((teamName1, teamScore1), rest)
+end
+|bestTeam([(teamName1, teamScore1)])=(teamName1, teamScore1);
+
+fun sortScoredMeet([])=[]
+| sortScoredMeet(scoreList)= bestTeam(scoreList)::sortScoredMeet(removeScore(bestTeam(scoreList),scoreList));
+
+fun scoreMeet(athleteList, eventList, [])= []
+| scoreMeet(athleteList, eventList, team::teamList)= sortScoredMeet((team, scoreEvents(athleteList, eventList, team))::scoreMeet(athleteList, eventList, teamList));

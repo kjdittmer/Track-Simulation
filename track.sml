@@ -45,6 +45,39 @@ val SethMassot = Athlete("Seth Massot", Wheaton, [(FifteenHundred, 4.14), (Three
 val StephenMathew = Athlete("StephenMathew", Wheaton, [(highJump, 1.97)]);
 val DanielMorken = Athlete("Daniel Morken", Wheaton, [(FifteenHundred, 4.09), (ThreeThousandSteepleChase, 10.33)]);
 
+fun mkTList([], r) = []
+| mkTList (Athlete(string, Team, (Event, real)::rest)::athletes, Race) = 
+	let fun findEvent([])= []
+	| findEvent((Event, real)::rest) = if Event = Race then (real, string) else findEvent(rest)
+	in findEvent((Event, real)::rest)):: mkTList(athletes, Race) end;
+
+fun merge([], ys) = ys
+|	merge(xs, []) = xs
+|	merge((x, xx)::xs, (y, yy)::ys) =
+	if x < y then
+		(x, xx)::merge(xs, (y, yy)::ys)
+	else
+		(y, yy)::merge((x,x)::xs, ys);
+
+fun split ([]) = ([], [])
+| split ([(a,aa)]) = ([(a,aa)], [])
+| split ((a, aa)::(b, bb)::rest) = 
+  let val (H, B) =
+      split rest 
+      in 
+      ((a, aa)::H, (b, bb)::B)
+      end;
+
+fun mergesort [] = []
+| mergesort [(a, b)] = [(a, b)]
+| mergesort [(a, aa), (b, bb)] = if a <= b then [(a, aa),(b, bb)]
+  	    	      else [(b,bb),(a,aa)]
+| mergesort L = 
+  let val (H, B) = split L
+  in 
+  merge (mergesort H, mergesort B)
+  end;
+
 val totalAthleteList = [GrantAdams,ChrisAlbert,PaulAmstutz,EthanBert,ChristianBooth,DavidBradley,PeterBradley,JoeCaraway,IsaiahClauson,RyanCross,DonCrowder,JonathanDahlager,DavidDischinger,JeremeyEarnest,AbramErickson,ThomasEverest,PaulFay,TrevorGabriele, JPGilbert, EthanHarsted, JakeHibben, RobertIrwin, BenJackson, DerekJohanik, LarsJohnson, JonahJones, ElliotKim, MichaelKitchen, JasonKoehler, MichaelLarkin, AndrewLauber, AndyMargason, SethMassot, StephenMathew, DanielMorken];
 
 
@@ -62,8 +95,6 @@ let fun larger((time3,name3,team3), []) = (time3,name3,team3)
 	| larger((time3,name3,team3), (time4,name4,team4)::tail) = if round(time3*100.0) > round(time4*100.0) then larger((time3,name3,team3), tail) else larger ((time4,name4, team4), tail)
 in larger((time1,name1,team1), (time2,name2,team2)::rest) end
 | largest((time1,name1,team1)::rest)=(time1,name1,team1);
-
-
 
 fun sortsmall([]) =[]
 | sortsmall(list)= smallest(list)::sortsmall(remove((smallest(list)),list));

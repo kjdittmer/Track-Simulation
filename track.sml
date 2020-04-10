@@ -52,42 +52,7 @@ val BrandonWilkerson = Athlete("Brandon Wilkerson", Augustana, [(FiveK, 14.52)])
 val CarlSchoenfield = Athlete("Carl Schoenfield", Augustana, [(TenK, 32.07)]);
 val RyanThornton = Athlete("Ryan Thornton", Augustana, [(highJump, 2.03)]);
 
-
-
-fun mkTList([], r) = []
-| mkTList (Athlete(string, Team, (Event, real)::rest)::athletes, Race) = 
-	let fun findEvent([])= []
-	| findEvent((Event, real)::rest) = if Event = Race then (real, string) else findEvent(rest)
-	in findEvent((Event, real)::rest)):: mkTList(athletes, Race) end;
-
-fun merge([], ys) = ys
-|	merge(xs, []) = xs
-|	merge((x, xx)::xs, (y, yy)::ys) =
-	if x < y then
-		(x, xx)::merge(xs, (y, yy)::ys)
-	else
-		(y, yy)::merge((x,x)::xs, ys);
-
-fun split ([]) = ([], [])
-| split ([(a,aa)]) = ([(a,aa)], [])
-| split ((a, aa)::(b, bb)::rest) = 
-  let val (H, B) =
-      split rest 
-      in 
-      ((a, aa)::H, (b, bb)::B)
-      end;
-
-fun mergesort [] = []
-| mergesort [(a, b)] = [(a, b)]
-| mergesort [(a, aa), (b, bb)] = if a <= b then [(a, aa),(b, bb)]
-  	    	      else [(b,bb),(a,aa)]
-| mergesort L = 
-  let val (H, B) = split L
-  in 
-  merge (mergesort H, mergesort B)
-  end;
-
-val totalAthleteList = [GrantAdams,ChrisAlbert,PaulAmstutz,EthanBert,ChristianBooth,DavidBradley,PeterBradley,JoeCaraway,IsaiahClauson,RyanCross,DonCrowder,JonathanDahlager,DavidDischinger,JeremeyEarnest,AbramErickson,ThomasEverest,PaulFay,TrevorGabriele, JPGilbert, EthanHarsted, JakeHibben, RobertIrwin, BenJackson, DerekJohanik, LarsJohnson, JonahJones, ElliotKim, MichaelKitchen, JasonKoehler, MichaelLarkin, AndrewLauber, AndyMargason, SethMassot, StephenMathew, DanielMorken];
+val totalAthleteList = [GrantAdams,ChrisAlbert,PaulAmstutz,EthanBert,ChristianBooth,DavidBradley,PeterBradley,JoeCaraway,IsaiahClauson,RyanCross,DonCrowder,JonathanDahlager,DavidDischinger,JeremeyEarnest,AbramErickson,ThomasEverest,PaulFay,TrevorGabriele, JPGilbert, EthanHarsted, JakeHibben, RobertIrwin, BenJackson, DerekJohanik, LarsJohnson, JonahJones, ElliotKim, MichaelKitchen, JasonKoehler, MichaelLarkin, AndrewLauber, AndyMargason, SethMassot, StephenMathew, DanielMorken, MichaelJohnson, IanRothery,JosjTeets, BrandonWilkerson, CarlSchoenfield, RyanThornton];
 
 fun remove((removeTime,removeName,removeTeam), []) = []
 |remove((removeTime,removeName,removeTeam), (time1,name1,team1)::rest) = if removeName=name1  then remove((removeTime,removeName,removeTeam),rest) else (time1,name1,team1):: remove((removeTime,removeName,removeTeam), rest);

@@ -54,6 +54,8 @@ val RyanThornton = Athlete("Ryan Thornton", Augustana, [(highJump, 2.03)]);
 
 val totalAthleteList = [GrantAdams,ChrisAlbert,PaulAmstutz,EthanBert,ChristianBooth,DavidBradley,PeterBradley,JoeCaraway,IsaiahClauson,RyanCross,DonCrowder,JonathanDahlager,DavidDischinger,JeremeyEarnest,AbramErickson,ThomasEverest,PaulFay,TrevorGabriele, JPGilbert, EthanHarsted, JakeHibben, RobertIrwin, BenJackson, DerekJohanik, LarsJohnson, JonahJones, ElliotKim, MichaelKitchen, JasonKoehler, MichaelLarkin, AndrewLauber, AndyMargason, SethMassot, StephenMathew, DanielMorken, MichaelJohnson, IanRothery,JosjTeets, BrandonWilkerson, CarlSchoenfield, RyanThornton];
 
+val totalTeamList = [Augustana, Carroll, Carthage, Elmhurst, IllinoisWesleyan, Millikin, NorthCentral, NorthPark, Wheaton];
+
 fun remove((removeTime,removeName,removeTeam), []) = []
 |remove((removeTime,removeName,removeTeam), (time1,name1,team1)::rest) = if removeName=name1  then remove((removeTime,removeName,removeTeam),rest) else (time1,name1,team1):: remove((removeTime,removeName,removeTeam), rest);
 
@@ -87,8 +89,8 @@ fun mkTList([], r) = []
 else sortlarge(findEvent((athRace, time)::rest)@ mkTList(athletes, scoreRace)) 
  end;
 
- fun score([], team)= 0
- | score(sortedList, team)=
+ fun scoreEvent([], team)= 0
+ | scoreEvent(sortedList, team)=
  	let fun nextpoints(0)= 0 
  	|nextpoints(a) = if a<=6 then a-1 else a-2;
  	fun helpscore([], points)=0
@@ -96,3 +98,4 @@ else sortlarge(findEvent((athRace, time)::rest)@ mkTList(athletes, scoreRace))
  	|helpscore((b,c,d)::rest, points)= if d=team then points+helpscore(rest, nextpoints(points)) else helpscore(rest, nextpoints(points))
  in helpscore(sortedList, 10)
  end;
+

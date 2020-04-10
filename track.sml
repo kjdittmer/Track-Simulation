@@ -32,23 +32,27 @@ fun mkTList([], r) = []
 	| findEvent((Event, real)::rest) = if Event = Race then (real, string) else findEvent(rest)
 	in findEvent((Event, real)::rest)):: mkTList(athletes, Race) end;
 
-fun merge([], (y, yy)) = (y, yy)
-| merge((x, xx), []) = (x, xx)
-| merge((x, xx)::restX, (y, yy)::restY) = 
-  if x < y then (x, xx)::merge(restX, (y, yy)::restY)
-  else (y, yy)::merge((x, xx)::restX, restY);
+fun merge([], ys) = ys
+|	merge(xs, []) = xs
+|	merge((x, xx)::xs, (y, yy)::ys) =
+	if x < y then
+		(x, xx)::merge(xs, (y, yy)::ys)
+	else
+		(y, yy)::merge((x,x)::xs, ys);
 
 fun split ([]) = ([], [])
 | split ([(a,aa)]) = ([(a,aa)], [])
 | split ((a, aa)::(b, bb)::rest) = 
   let val (H, B) =
-      split rest in ((a, aa)::H, (b, bb)::B)
+      split rest 
+      in 
+      ((a, aa)::H, (b, bb)::B)
       end;
 
 fun mergesort [] = []
 | mergesort [(a, b)] = [(a, b)]
 | mergesort [(a, aa), (b, bb)] = if a <= b then [(a, aa),(b, bb)]
-  	    	      else [(b,bb),(aaa)]
+  	    	      else [(b,bb),(a,aa)]
 | mergesort L = 
   let val (H, B) = split L
   in 

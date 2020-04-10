@@ -80,3 +80,4 @@ fun mkTList([], r) = []
  then sortsmall(findEvent((athRace, time)::rest)@ mkTList(athletes, scoreRace)) 
 else sortlarge(findEvent((athRace, time)::rest)@ mkTList(athletes, scoreRace)) 
  end;
+

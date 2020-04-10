@@ -3,7 +3,7 @@
 
 datatype team = Augustana | Carroll | Carthage | Elmhurst | IllinoisWesleyan | Millikin | NorthCentral | NorthPark | Wheaton ;
 
-datatype Event = OneHundred | OneHundredHurdles | OneTenHurdles | TwoHundred | FourHundred | FourHundredHurdles | EightHundred | FifteenHundred | ThreeThousand | ThreeThousandSteepleChase | FiveK | TenK | FourByFour | FourByEight | SMR | DMR |longJump | highJump | tripleJump  | poleVault |shotPut | discus | javelin | hammerThrow |Heptathalon | Decathalon;
+datatype Event = OneHundred | OneHundredHurdles | OneTenHurdles | TwoHundred | FourHundred | FourHundredHurdles | EightHundred | FifteenHundred | ThreeThousand | ThreeThousandSteepleChase | FiveK | TenK | longJump | highJump | tripleJump  | poleVault |shotPut | discus | javelin | hammerThrow |Heptathalon | Decathalon;
 
 
 datatype athlete =Athlete of (string * team * (Event * real) list);
@@ -47,14 +47,9 @@ val DanielMorken = Athlete("Daniel Morken", Wheaton, [(FifteenHundred, 4.09), (T
 
 val totalAthleteList = [GrantAdams,ChrisAlbert,PaulAmstutz,EthanBert,ChristianBooth,DavidBradley,PeterBradley,JoeCaraway,IsaiahClauson,RyanCross,DonCrowder,JonathanDahlager,DavidDischinger,JeremeyEarnest,AbramErickson,ThomasEverest,PaulFay,TrevorGabriele, JPGilbert, EthanHarsted, JakeHibben, RobertIrwin, BenJackson, DerekJohanik, LarsJohnson, JonahJones, ElliotKim, MichaelKitchen, JasonKoehler, MichaelLarkin, AndrewLauber, AndyMargason, SethMassot, StephenMathew, DanielMorken];
 
-fun mkTList([], r) = []
-  | mkTList (Athlete(name, team, (athRace, time)::rest)::athletes, scoreRace) =
-	  let fun findEvent([])= []
-             | findEvent((athRace, time)::rest) = if athRace = scoreRace then [(time, name, team)] else findEvent(rest)
-        in findEvent((athRace, time)::rest)@ mkTList(athletes, scoreRace) end;
 
 fun remove((removeTime,removeName,removeTeam), []) = []
-|remove((removeTime,removeName,removeTeam), (time1,name1,team1)::rest) = if removeName=name1 then remove((removeTime,removeName,removeTeam),rest) else (time1,name1,team1):: remove((removeTime,removeName,removeTeam), rest);
+|remove((removeTime,removeName,removeTeam), (time1,name1,team1)::rest) = if removeName=name1  then remove((removeTime,removeName,removeTeam),rest) else (time1,name1,team1):: remove((removeTime,removeName,removeTeam), rest);
 
 fun smallest((time1,name1,team1)::(time2,name2,team2)::rest) =
 let fun smaller((time3,name3,team3), []) = (time3,name3,team3)
@@ -62,3 +57,26 @@ let fun smaller((time3,name3,team3), []) = (time3,name3,team3)
 in smaller((time1,name1,team1), (time2,name2,team2)::rest) end
 | smallest((time1,name1,team1)::rest)=(time1,name1,team1);
 
+fun largest((time1,name1,team1)::(time2,name2,team2)::rest) =
+let fun larger((time3,name3,team3), []) = (time3,name3,team3)
+	| larger((time3,name3,team3), (time4,name4,team4)::tail) = if round(time3*100.0) > round(time4*100.0) then larger((time3,name3,team3), tail) else larger ((time4,name4, team4), tail)
+in larger((time1,name1,team1), (time2,name2,team2)::rest) end
+| largest((time1,name1,team1)::rest)=(time1,name1,team1);
+
+
+
+fun sortsmall([]) =[]
+| sortsmall(list)= smallest(list)::sortsmall(remove((smallest(list)),list));
+
+fun sortlarge([]) =[]
+| sortlarge(list)= largest(list)::sortlarge(remove((largest(list)),list));
+
+fun mkTList([], r) = []
+  | mkTList (Athlete(name, team, (athRace, time)::rest)::athletes, scoreRace) =
+	  let fun findEvent([])= []
+             | findEvent((athRace, time)::rest) = if athRace = scoreRace then [(time, name, team)] else findEvent(rest)     
+ in 
+ if scoreRace = OneHundred orelse scoreRace = OneHundredHurdles orelse scoreRace = OneTenHurdles orelse scoreRace = TwoHundred orelse scoreRace = FourHundred orelse scoreRace = FourHundredHurdles orelse scoreRace = EightHundred orelse scoreRace =  FifteenHundred orelse scoreRace = ThreeThousand orelse scoreRace =  ThreeThousandSteepleChase orelse scoreRace = FiveK orelse scoreRace =  TenK 
+ then sortsmall(findEvent((athRace, time)::rest)@ mkTList(athletes, scoreRace)) 
+else sortlarge(findEvent((athRace, time)::rest)@ mkTList(athletes, scoreRace)) 
+ end;

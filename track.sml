@@ -1,12 +1,16 @@
 (*This file is the initial ML file for our programming projet*)
 
+(*DATATYPES*)
 
 datatype team = Augustana | Carroll | Carthage | Elmhurst | IllinoisWesleyan | Millikin | NorthCentral | NorthPark | Wheaton ;
+
 
 datatype Event = OneHundred | OneTenHurdles | TwoHundred | FourHundred | FourHundredHurdles | EightHundred | FifteenHundred | ThreeThousand | ThreeThousandSteepleChase | FiveK | TenK | longJump | highJump | tripleJump  | poleVault |shotPut | discus | javelin | hammerThrow |Heptathalon | Decathalon;
 
 
 datatype athlete =Athlete of (string * team * (Event * real) list);
+
+(*VALUES*)
 
 (*Wheaton Athletes*)
 
@@ -65,6 +69,7 @@ val PeterWatson = Athlete("Peter Watson", Wheaton, [(highJump, 1.81), (tripleJum
 val DanielWetlesen = Athlete("Daniel Wetlesen", Wheaton, [(javelin, 43.3)]);
 
 (*Augustana Athletes*)
+
 val MarcoAlanis = Athlete("Marco Alanis", Augustana, [(FifteenHundred, 4.2), (ThreeThousand, 9.14), (FiveK, 16.03), (TenK, 33.44)]);
 val JuddAnderson = Athlete("Judd Anderson", Augustana, [(OneHundred, 11.47), (TwoHundred, 23.69), (OneTenHurdles, 15.44), (FourHundredHurdles, 55.99)]);
 val MichaelAumuller = Athlete("Michael Amuller", Augustana, [(ThreeThousand, 9.55)]);
@@ -98,15 +103,20 @@ val totalTeamList = [Augustana, Carroll, Carthage, Elmhurst, IllinoisWesleyan, M
 
 val totalEventList= [OneHundred, OneTenHurdles, TwoHundred, FourHundred, FourHundredHurdles,  EightHundred, FifteenHundred, ThreeThousand, ThreeThousandSteepleChase, FiveK, TenK,  longJump, highJump, tripleJump, poleVault, shotPut, discus, javelin, hammerThrow, Heptathalon, Decathalon];
 
+(*FUNCTIONS*)
+
+(*Helper function for sortlarge and sortsmall, removes value from mkTList tuple*)
 fun remove((removeTime,removeName,removeTeam), []) = []
 |remove((removeTime,removeName,removeTeam), (time1,name1,team1)::rest) = if removeName=name1  then remove((removeTime,removeName,removeTeam),rest) else (time1,name1,team1):: remove((removeTime,removeName,removeTeam), rest);
 
+(*Helper function for sortsmall, finds smallest value in mkTList tuple*)
 fun smallest((time1,name1,team1)::(time2,name2,team2)::rest) =
 let fun smaller((time3,name3,team3), []) = (time3,name3,team3)
 	| smaller((time3,name3,team3), (time4,name4,team4)::tail) = if round(time3*100.0) < round(time4*100.0) then smaller((time3,name3,team3), tail) else smaller ((time4,name4, team4), tail)
 in smaller((time1,name1,team1), (time2,name2,team2)::rest) end
 | smallest((time1,name1,team1)::rest)=(time1,name1,team1);
 
+(*Helper function for sortlarge, finds largest value in mkTList tuple*)
 fun largest((time1,name1,team1)::(time2,name2,team2)::rest) =
 let fun larger((time3,name3,team3), []) = (time3,name3,team3)
 	| larger((time3,name3,team3), (time4,name4,team4)::tail) = if round(time3*100.0) > round(time4*100.0) then larger((time3,name3,team3), tail) else larger ((time4,name4, team4), tail)
@@ -114,13 +124,15 @@ in larger((time1,name1,team1), (time2,name2,team2)::rest) end
 | largest((time1,name1,team1)::rest)=(time1,name1,team1);
 
 
-
+(*Helper function for MkTList, sorts list smallest to largest, used for running events where smallest time wins*)
 fun sortsmall([]) =[]
 | sortsmall(list)= smallest(list)::sortsmall(remove(smallest(list),list));
 
+(*Helper function for mkTList, sorts list from largest to smallest, used for field events where largest distance wins*)
 fun sortlarge([]) =[]
 | sortlarge(list)= largest(list)::sortlarge(remove(largest(list),list));
 
+(*Function that takes list of athletes and event and returns a list of times, names, and teams in said event*)
 fun mkTList([], r) = []
   | mkTList (Athlete(name, team, (athRace, time)::rest)::athletes, scoreRace) =
 	  let fun findEvent([])= []
@@ -130,6 +142,8 @@ fun mkTList([], r) = []
  then sortsmall(findEvent((athRace, time)::rest)@ mkTList(athletes, scoreRace)) 
 else sortlarge(findEvent((athRace, time)::rest)@ mkTList(athletes, scoreRace)) 
  end;
+
+ (*scores mkTList for given team*)
 
  fun scoreEvent([], team)= 0
  | scoreEvent(sortedList, team)=
@@ -141,13 +155,16 @@ else sortlarge(findEvent((athRace, time)::rest)@ mkTList(athletes, scoreRace))
  in helpscore(sortedList, 10)
  end;
 
+(*scores multiple mkTLists for given Team*)
 fun scoreEvents(athleteList, [], team)= 0
 |scoreEvents(athleteList, event::eventList, team)= scoreEvent(mkTList(athleteList, event), team) +scoreEvents(athleteList, eventList, team);
 
+(*Helper Function for sortScoredMeet, removes score from list produced by scoreMeet*)
 
 fun removeScore((removeTeam, removePoints),[]) = []
 |removeScore((removeTeam, removePoints),(teamName, teamScore)::scoredMeet) = if teamName = removeTeam then removeScore((removeTeam, removePoints),scoredMeet) else (teamName, teamScore)::removeScore((removeTeam, removePoints),scoredMeet);
 
+(*Helper Function for sortScored Meet, finds best score from list produced by scoreMeet*)
 fun 
 bestTeam((teamName1, teamScore1)::(teamName2, teamScore2)::rest)=
 let fun better((teamName3, teamScore3), [])= (teamName3, teamScore3)
@@ -156,8 +173,10 @@ in better((teamName1, teamScore1), rest)
 end
 |bestTeam([(teamName1, teamScore1)])=(teamName1, teamScore1);
 
+(*Helper Function for Score Meet, sorts teams and scores from best to worst*)
 fun sortScoredMeet([])=[]
 | sortScoredMeet(scoreList)= bestTeam(scoreList)::sortScoredMeet(removeScore(bestTeam(scoreList),scoreList));
 
+(*Given list of athletes, events, and teams, scores a hypothetical meet*)
 fun scoreMeet(athleteList, eventList, [])= []
 | scoreMeet(athleteList, eventList, team::teamList)= sortScoredMeet((team, scoreEvents(athleteList, eventList, team))::scoreMeet(athleteList, eventList, teamList));

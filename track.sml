@@ -70,8 +70,21 @@ val DanielWetlesen = Athlete("Daniel Wetlesen", Wheaton, [(javelin, 43.3)]);
 
 (*Augustana Athletes*)
 
+val MichaelJohnson = Athlete("Michael Johnson", Augustana, [(TwoHundred, 21.69),(OneHundred, 10.66)]);
+val IanRothery = Athlete("Ian Rothery", Augustana, [(FourHundred, 50.08)]);
+val JoshTeets = Athlete("Josh Teets", Augustana, [(EightHundred, 1.54), (FifteenHundred, 3.59)]);
+val BrandonWilkerson = Athlete("Brandon Wilkerson", Augustana, [(FiveK, 14.52), (ThreeThousandSteepleChase, 9.06)]);
+val CarlSchoenfield = Athlete("Carl Schoenfield", Augustana, [(TenK, 32.07)]);
+val JuddAnderson = Athlete("Judd Anderson", Augustana, [(OneHundredHurdles, 15.44)]);
+val ClaytonSommers = Athlete("Clayton Sommers", Augustana, [(FourHundredHurdles, 53.55)]);
+val RyanThornton = Athlete("Ryan Thornton", Augustana, [(highJump, 2.03), (Decathalon, 6010.0)]);
+val MarkVanderheyden = Athlete("Mark Vanderheyden", Augustana, [(poleVault, 4.50)]);
+val JoshBoulanger = Athlete("Josh Boulanger", Augustana, [(longJump, 6.61)]);
+val MasonWright = Athlete("Mason Wright", Augustana, [(tripleJump, 14.00)]);
+val JoshMathis = Athlete("Josh Mathis", Augustana, [(shotPut, 15.01), (discus, 47.70)]);
+val CodyWheeler = Athlete("Cody Wheeler", Augustana, [(hammerThrow, 63.83)]);
+val RyanGanson = Athlete("Ryan Ganson", Augustana, [(javelin, 59.98)]);
 val MarcoAlanis = Athlete("Marco Alanis", Augustana, [(FifteenHundred, 4.2), (ThreeThousand, 9.14), (FiveK, 16.03), (TenK, 33.44)]);
-val JuddAnderson = Athlete("Judd Anderson", Augustana, [(OneHundred, 11.47), (TwoHundred, 23.69), (OneTenHurdles, 15.44), (FourHundredHurdles, 55.99)]);
 val MichaelAumuller = Athlete("Michael Amuller", Augustana, [(ThreeThousand, 9.55)]);
 val UrvakshAvanthsa = Athlete("Urvaksh Avanthsa", Augustana, [(TwoHundred, 24.86), (FourHundred, 57.29), (FifteenHundred, 4.57), (OneTenHurdles, 18.73), (highJump, 1.77), (poleVault, 3.45), (longJump, 5.94), (shotPut, 9.44), (discus, 26.65), (javelin, 43.45), (Heptathalon, 3801.0), (Decathalon, 4784.0)]);
 val KyleBaus = Athlete("Kyle Baus", Augustana, [(poleVault, 4.15), (longJump, 5.28)]);
@@ -89,45 +102,110 @@ val DiegoCruz = Athlete("Diego Cruz", Augustana, [(ThreeThousand, 9.37), (FiveK,
 val JackCurrie = Athlete("Jack Currie", Augustana, [(shotPut, 14.6), (discus, 36.93)]);
 val KevinDonovan = Athlete("Kevin Donovan", Augustana, [(OneHundred, 12.06), (FourHundred, 53.16), (FifteenHundred,4.31), (OneTenHurdles, 16.9), (highJump, 1.75), (poleVault, 4.15), (longJump, 5.61), (shotPut, 9.14), (discus, 21.92), (javelin, 40.40), (Heptathalon, 3885.0), (Decathalon, 5349.0)]);
 
+(*Carroll Athletes*)
 
+val AaronKurth = Athlete("Aaron Kurth", Carroll, [(OneHundred, 10.86), (TwoHundred, 22.14)]);
+val AlexNavin = Athlete("Alex Navin", Carroll, [(FourHundred, 52.76)]);
+val GrantMarton = Athlete("Grant Marton", Carroll, [(EightHundred, 1.51),(FifteenHundred, 3.58)]);
+val SpencerKirsteatter = Athlete("Spencer Kirsteatter", Carroll, [(FiveK, 15.03), (TenK, 31.28)]);
+val MichaelMirkes = Athlete("Michael Mirkes", Carroll, [(OneHundredHurdles, 15.85), (FourHundredHurdles, 56.90)]);
+val KyleAdams = Athlete("Kyle Adams", Carroll, [(ThreeThousandSteepleChase, 9.36)]);
+val DavidLembke = Athlete("David Lembke", Carroll, [(highJump, 2.10)]);
+val AJPetersen = Athlete("AJ Petersen", Carroll, [(poleVault, 3.93)]);
+val DavidGilbert = Athlete("David Gilbert", Carroll, [(longJump, 6.71)]);
+val DavidBurgess = Athlete("David Burgess", Carroll, [(tripleJump, 14.23)]);
+val StevenHermsen = Athlete("Steven Hermsen", Carroll, [(shotPut, 15.05), (discus, 45.58)]);
+val PJLeClaire = Athlete("PJ LeClaire", Carroll, [(hammerThrow, 43.61)]);
+val AustinHarter = Athlete("Austin Harter", Carroll, [(javelin, 43.61)]);
 
-val MichaelJohnson = Athlete("Michael Johnson", Augustana, [(TwoHundred, 21.69),(OneHundred, 10.66), (tripleJump, 13.96)]);
-val IanRothery = Athlete("Ian Rothery", Augustana, [(TwoHundred, 23.11),(FourHundred, 50.08)]);
-val JoshTeets = Athlete("Josh Teets", Augustana, [(TwoHundred, 23.69), (FourHundred, 53.13),(EightHundred, 1.54), (FifteenHundred, 3.59)]);
-val CarlSchoenfield = Athlete("Carl Schoenfield", Augustana, [(EightHundred, 2.08), (FifteenHundred, 4.16), (ThreeThousand, 9.05), (FiveK, 15.33),(TenK, 32.07)]);
-val RyanThornton = Athlete("Ryan Thornton", Augustana, [(OneHundred, 11.79), (FourHundred, 53.29), (FifteenHundred, 5.26), (OneTenHurdles, 16.86),(highJump, 2.03), (poleVault, 3.5), (longJump, 6.58), (shotPut, 11.6), (discus, 35.06), (javelin, 47.01), (Heptathalon, 4648.0), (Decathalon, 6010.0)]);
+(*Carthage Athletes*)
+
+val LucasLieb = Athlete("Lucas Lieb", Carthage, [(OneHundred, 11.26)]);
+val MichaelSchantek = Athlete("Michael Schantek", Carthage, [(TwoHundred, 22.49),(FourHundred, 49.76)]);
+val CamrenHoward = Athlete("Camren Howard", Carthage, [(EightHundred, 1.53),(FifteenHundred, 3.55)]);
+val LoganEngberg = Athlete("Logan Engberg", Carthage, [(FiveK, 14.57), (TenK, 30.33)]);
+val AlassaneGuisse = Athlete("Alassane Guisse", Carthage, [(OneHundredHurdles, 16.65)]);
+val JaredHumphrey = Athlete("Jared Humphrey", Carthage, [(FourHundredHurdles, 57.25)]);
+val ConnorBell = Athlete("Connor Bell", Carthage, [(highJump, 1.88), (poleVault, 3.30),(javelin, 45.42),(Decathalon, 5534.0)]);
+val IsaiahBrown = Athlete("Isaiah Brown", Carthage, [(longJump, 6.56), (tripleJump, 13.06)]);
+val AaronAustin = Athlete("Aaron Austin", Carthage, [(shotPut, 15.16), (discus, 50.35),(hammerThrow, 52.89)]);
+
+(*Elmhurst Athletes*)
+
+val JustinParbs = Athlete("Justin Parbs", Elmhurst, [(OneHundred, 11.58),(OneHundredHurdles, 17.67), (Decathalon, 4618.0),(longJump, 5.75)]);
+val JakeTahaney = Athlete("Jake Tahaney", Elmhurst, [(TwoHundred, 23.73),(FourHundred, 52.14)]);
+val JoeRivas = Athlete("Joe Rivas", Elmhurst, [(EightHundred, 2.00),(FifteenHundred, 4.07)]);
+val JuanCastaneda = Athlete("Juan Castaneda", Elmhurst, [(FiveK, 16.18)]);
+val MattTobin = Athlete("Matt Tobin", Elmhurst, [(poleVault, 4.00)]);
+val IanPerkins = Athlete("Ian Perkins", Elmhurst, [(shotPut, 13.58),(highJump, 38.09)]);
+val JacobBoyko = Athlete("Jacob Boyko", Elmhurst, [(discus, 38.78)]);
+val JakeMammosser = Athlete("Jake Mammosser", Elmhurst, [(javelin, 55.46)]);
+
+(*Illinois Wesleyan Athletes*)
+
+val MichaelHones = Athlete("Michael Hones", IllinoisWesleyan, [(OneHundred, 11.10), (FourHundred, 53.74)]);
+val DylanRuskin = Athlete("Dylan Ruskin", IllinoisWesleyan, [(TwoHundred, 22.96)]);
+val JeremyGlickman = Athlete("Jeremy Glickman", IllinoisWesleyan, [(EightHundred, 1.56),(FifteenHundred, 4.02)]);
+val StevenRaybould = Athlete("Steven Raybould", IllinoisWesleyan, [(FiveK, 15.36)]);
+val MattWagner = Athlete("Matt Wagner", IllinoisWesleyan, [(TenK, 32.59)]);
+val PrithviRajBandaru = Athlete("PrithviRaj Bandaru", IllinoisWesleyan, [(OneHundredHurdles, 17.86)]);
+val DavidHorn = Athlete("David Horn", IllinoisWesleyan, [(FourHundredHurdles, 57.49)]);
+val SethBorrowman = Athlete("Seth Borrowman", IllinoisWesleyan, [(ThreeThousandSteepleChase, 9.59)]);
+val PatrickFoster = Athlete("PatrickFoster", IllinoisWesleyan, [(highJump, 1.88)]);
+val EthanKett = Athlete("Ethan Kett", IllinoisWesleyan, [(poleVault, 4.22)]);
+val BryanWorby = Athlete("Bryan Worby", IllinoisWesleyan, [(longJump, 6.85)]);
+val MarqusHarvey = Athlete("Marqus Harvey", IllinoisWesleyan, [(tripleJump, 12.90)]);
+val ColeParaday = Athlete("Cole Paraday", IllinoisWesleyan, [(shotPut, 14.68), (discus, 44.95)]);
+val JakeWilliams = Athlete("Jake Williams", IllinoisWesleyan, [(hammerThrow, 49.88)]);
+val LeeLieser = Athlete("Lee Lieser", IllinoisWesleyan, [(javelin, 39.78)]);
+val DavisNguy = Athlete("Davis Nguy", IllinoisWesleyan, [(Decathalon, 4510.0)]);
+
+(*Millikin Athletes*)
+
+val ChristianZenon = Athlete("Christian Zenon", Millikin, [(TwoHundred, 21.79),(OneHundred, 10.72)]);
+val EthanMeyer = Athlete("Ethan Meyer", Millikin, [(FourHundred, 50.29)]);
+val BenKuxmann = Athlete("Ben Kuxmann", Millikin, [(EightHundred, 1.53), (FifteenHundred, 4.06)]);
+val TaijhanNelson = Athlete("Taijhan Nelson", Millikin, [(FiveK, 25.47)]);
+val DaltonCollins = Athlete("Dalton Collins", Millikin, [(OneHundredHurdles, 15.18), (FourHundredHurdles, 55.05)]);
+val GarrettJones = Athlete("Garrett Jones", Millikin, [(ThreeThousandSteepleChase, 10.36)]);
+val ColeLewis = Athlete("Cole Lewis", Millikin, [(highJump, 1.91)]);
+val JoeyDavies = Athlete("Joey Davies", Millikin, [(poleVault, 3.30),(Decathalon, 5265.0)]);
+val MarshunHart = Athlete("Marshun Hart", Millikin, [(longJump, 6.67)]);
+val EthanMeyer = Athlete("EthanMeyer", Millikin, [(tripleJump, 13.60)]);
+val KemondMurray = Athlete("Kemond Murray", Millikin, [(shotPut, 13.14), (discus, 38.13)]);
+val DaltonLong = Athlete("Dalton Long", Millikin, [(hammerThrow, 42.74), (javelin, 42.60)]);
 
 (*North Central Athletes*)
-val LeonardoAcevedo = Athlete("Leonardo Acevedo", NorthCentral, [(shotPut, 13.35), (discus, 34.2)]);
-val BrianArmstrong = Athlete("Brian Armstrong", NorthCentral, [(TwoHundred, 23.85), (highJump, 1.86), (tripleJump, 12.75)]);
-val NateBailey = Athlete("Nate Bailey", NorthCentral, [(OneHundred, 11.24), (TwoHundred, 23.67)]);
-val KyleBell = Athlete("Kyle Bell", NorthCentral, [(ThreeThousand, 8.49), (FiveK, 15.00)]);
-val CameronBenes = Athlete("Cameron Benes", NorthCentral, [(EightHundred, 1.53), (FifteenHundred, 4.03)]);
-val TimothyBertulis = Athlete("Timothy Vertulis", NorthCentral, [(FifteenHundred, 4.2), (ThreeThousand, 9.0), (FiveK, 16.0), (ThreeThousandSteepleChase, 9.45)]);
-val AlecBeutel = Athlete("Alec Beutel", NorthCentral, [(FifteenHundred, 2.53), (ThreeThousand, 8.44), (FiveK, 15.08), (TenK, 32.34)]);
-val MatthewBoelke = Athlete("Matthew Boelke", NorthCentral, [(ThreeThousand, 8.51), (FiveK, 14.55)]);
-val IanBuske = Athlete("Ian Buske", NorthCentral, [(ThreeThousand, 9.22), (FiveK, 16.17)]);
-val GavinCarr = Athlete("Gavin Carr", NorthCentral, [(poleVault, 4.36)]);
-val GavinCernek = Athlete("Gavin Cernek", NorthCentral, [(TwoHundred, 23.19), (FourHundred, 49.33), (FourHundredHurdles, 55.61), (highJump, 1.83)]);
-val ZacharyChapman = Athlete("Zachary Chapman", NorthCentral, [(ThreeThousand, 9.21), (FiveK, 15.06), (TenK, 31.21)]);
-val DylanCombs = Athlete("Dylan Combs", NorthCentral, [(TwoHundred, 27.69), (longJump, 4.60), (javelin, 36.55)]);
-val MichaelConkright = Athlete("Michael Conkright", NorthCentral, [(EightHundred, 2.00)]);
-val NathanDibley = Athlete("Nathan Dibley", NorthCentral, [(ThreeThousand, 9.45)]);
 
-(*Carroll Athletes*)
-val SheldonAchs = Athlete("Sheldon Achs", Carroll, [(OneHundred, 11.63), (TwoHundred, 23.28)]);
-val KyleAdams = Athlete("KyleAdams", Carroll, [(EightHundred, 2.04), (FifteenHundred, 4.21), (ThreeThousand, 8.49),(FiveK, 15.29), (ThreeThousandSteepleChase, 9.36)]);
-val CooperAlbert = Athlete("Cooper Albert", Carroll, [(EightHundred, 2.15), (ThreeThousand, 10.38)]);
-val BlakeBatzko = Athlete("Blake Batzko", Carroll, [(EightHundred, 2.1), (ThreeThousand, 9.36), (FiveK, 16.53)]);
-val JakeBisco = Athlete("Jake Bisco", Carroll, [(OneHundred, 11.03), (TwoHundred, 22.8), (longJump, 5.73)]);
-val DavidBurgess = Athlete("David Burgess", Carroll, [(highJump, 1.97), (longJump, 6.64), (tripleJump, 14.16)]);
-val MaxwellCampbell = Athlete("Maxwell Campbell", Carroll, [(shotPut, 14.72), (discus, 37.52), (hammerThrow, 38.38)]);
-val MatthewClavijo = Athlete("Matthew Clavijo", Carroll, [(OneHundred, 11.64), (TwoHundred, 23.91)]);
-val StefanEagon = Athlete("Stefan Eagon", Carroll, [(ThreeThousand, 9.25), (FiveK, 16.14), (TenK, 35.26)]);
+val AvanteRivers = Athlete("Avante Rivers", NorthCentral, [(OneHundred, 10.92)]);
+val MichaelStanley = Athlete("Michael Stanley", NorthCentral, [(TwoHundred, 22.17)])
+val PeytonPiron = Athlete("Peyton Piron", NorthCentral, [(FourHundred, 46.90)]);
+val BrendonSebastian = Athlete("Brendon Sebastian", NorthCentral, [(EightHundred, 1.52)]);
+val MichaelAnderson = Athlete("Michael Anderson", NorthCentral, [(FifteenHundred, 3.51)]);
+val DhruvilPatel = Athlete("Dhruvil Patel", NorthCentral, [(FiveK, 13.51),(TenK, 28.50)]);
+val KyleHilton = Athlete("Kyle Hilton", NorthCentral, [(OneHundredHurdles, 15.00)]);
+val ErikMusgrave = Athlete("Erik Musgrave", NorthCentral, [(FourHundredHurdles, 54.81)]);
+val ZackMichael = Athlete("Zack Michael", NorthCentral, [(ThreeThousandSteepleChase, 9.33)]);
+val MichaelLeBlanc = Athlete("Michael LeBlanc", NorthCentral, [(highJump, 2.06)]);
+val IzaiahWebb = Athlete("Izaiah Webb", NorthCentral, [(poleVault, 4.65)]);
+val JavonKunkel = Athlete("Javon Kunkel", NorthCentral, [(longJump, 7.03)]);
+val ChristopherGrady = Athlete("Christopher Grady", NorthCentral, [(tripleJump, 13.95)]);
+val LiamSullivan = Athlete("Liam Sullivan", NorthCentral, [(shotPut, 15.00)]);
+val ElijahGreen = Athlete("Elijah Green", NorthCentral, [(discus, 43.20)]);
+val VinceOlenjniczak = Athlete("Vince Olenjniczak", NorthCentral, [(hammerThrow, 45.53)]);
+val LiamDoran = Athlete("Liam Doran", NorthCentral, [(javelin, 56.41)]);
 
+(*North Park Athletes*)
 
+val JoseBarrio = Athlete("Jose Barrio", NorthPark, [(OneHundred, 11.30), (TwoHundred, 23.39), (FourHundred, 51.21), (OneHundredHurdles, 16.51), (poleVault, 2.80), (longJump, 6.67), (discus, 30.23), (Decathalon, 5576.0)]);
+val JoeClifton = Athlete("Joe Clifton", NorthPark, [(EightHundred, 2.19), (FifteenHundred, 4.46)]);
+val MitchellKoeckeritz = Athlete("Mitchell Koeckeritz", NorthPark, [(highJump, 1.95)]);
+val GeorgeCorey = Athlete("George Corey", NorthPark, [(shotPut, 13.44), (hammerThrow, 28.93)]);
+val TylerHughes = Athlete("Tyler Hughes", NorthPark, [(javelin, 48.55)]);
 
-val totalAthleteList = [GrantAdams,ChrisAlbert,PaulAmstutz,EthanBert,ChristianBooth,DavidBradley,PeterBradley,JoeCaraway,IsaiahClauson,RyanCross,DonCrowder,JonathanDahlager,DavidDischinger,JeremeyEarnest,AbramErickson,ThomasEverest,PaulFay,TrevorGabriele, JPGilbert, EthanHarsted, JakeHibben, RobertIrwin, BenJackson, DerekJohanik, LarsJohnson, JonahJones, ElliotKim, MichaelKitchen, JasonKoehler, MichaelLarkin, AndrewLauber, AndyMargason, SethMassot, StephenMathew, DanielMorken, ElijahNitz, AleksNosewicz, EliOdell, KellenPetersen, SimonPeterson, LoganPinkerton, KevinRiley, DrewSmith, RobertSmith, IsaacStruebing, ColinSwanson, JamesVanDrie, PeterVanOs, MaxVeth, ChristianVoetberg, PeterWatson, DanielWetlesen, MarcoAlanis, JuddAnderson, UrvakshAvanthsa, KyleBaus, AndyBaxter,AlexanderBinegar, DanielBornstein, EhrenBraun,  PaulCabrera, NathanCarroll, MatthewContreras, MattCorke, PeytonCouch, DiegoCruz, JackCurrie, KevinDonovan, MichaelJohnson, IanRothery,JoshTeets,CarlSchoenfield, RyanThornton, LeonardoAcevedo, BrianArmstrong, NateBailey, KyleBell, CameronBenes, TimothyBertulis, AlecBeutel, MatthewBoelke, IanBuske, GavinCarr, GavinCernek, ZacharyChapman, DylanCombs, MichaelConkright, NathanDibley ];
+(*Total List of Athletes*)
+
+val totalAthleteList = [GrantAdams,ChrisAlbert,PaulAmstutz,EthanBert,ChristianBooth,DavidBradley,PeterBradley,JoeCaraway,IsaiahClauson,RyanCross,DonCrowder,JonathanDahlager,DavidDischinger,JeremeyEarnest,AbramErickson,ThomasEverest,PaulFay,TrevorGabriele, JPGilbert, EthanHarsted, JakeHibben, RobertIrwin, BenJackson, DerekJohanik, LarsJohnson, JonahJones, ElliotKim, MichaelKitchen, JasonKoehler, MichaelLarkin, AndrewLauber, AndyMargason, SethMassot, StephenMathew, DanielMorken, ElijahNitz, AleksNosewicz, EliOdell, KellenPetersen, SimonPeterson, LoganPinkerton, KevinRiley, DrewSmith, RobertSmith, IsaacStruebing, ColinSwanson, JamesVanDrie, PeterVanOs, MaxVeth, ChristianVoetberg, PeterWatson, DanielWetlesen, MarcoAlanis, JuddAnderson, UrvakshAvanthsa, KyleBaus, AndyBaxter,AlexanderBinegar, DanielBornstein, EhrenBraun,  PaulCabrera, NathanCarroll, MatthewContreras, MattCorke, PeytonCouch, DiegoCruz, JackCurrie, KevinDonovan, MichaelJohnson, IanRothery,JoshTeets,CarlSchoenfield, RyanThornton, BrandonWilkerson, ClaytonSommers, MarkVanderheyden, JoshBoulanger, MasonWright, JoshMathis, CodyWheeler, RyanGanson, AaronKurth, AlexNavin, GrantMarton, SpencerKirsteatter, MichaelMirkes, KyleAdams, DavidLembke, AJPetersen, DavidGilbert, DavidBurgess, StevenHermsen, PJLeClaire, AustinHarter, LucasLieb, MichaelSchantek, CamrenHoward, LoganEngberg, AlassaneGuisse, JaredHumphrey, ConnorBell, IsaiahBrown, AaronAustin, JustinParbs, JakeTahaney, JoeRivas, JuanCastaneda, MattTobin, IanPerkins, JacobBoyko, JakeMammosser, MichaelHones, DylanRuskin, JeremyGlickman, StevenRaybould, MattWagner, PrithviRajBandaru, DavidHorn, SethBorrowman, PatrickFoster, EthanKett, BryanWorby, MarqusHarvey, ColeParaday, JakeWilliams, LeeLieser, DavisNguy, ChristianZenon, EthanMeyer, BenKuxmann, TaijhanNelson, DaltonCollins, GarrettJones, ColeLewis, JoeyDavies, MarshunHart, EthanMeyer, KemondMurray, DaltonLong, JoeyDavies, AvanteRivers, MichaelStanley, PeytonPiron, BrendonSebastian, MichaelAnderson, DhruvilPatel, KyleHilton, ErikMusgrave, ZackMichael, MichaelLeBlanc, IzaiahWebb, JavonKunkel, ChristopherGrady, LiamSullivan, ElijahGreen, VinceOlenjniczak, LiamDoran, JoseBarrio, JoeClifton, MitchellKoeckeritz, GeorgeCorey, TylerHughes];
 
 val totalTeamList = [Augustana, Carroll, Carthage, Elmhurst, IllinoisWesleyan, Millikin, NorthCentral, NorthPark, Wheaton];
 
@@ -153,8 +231,8 @@ let fun larger((time3,name3,team3), []) = (time3,name3,team3)
 in larger((time1,name1,team1), (time2,name2,team2)::rest) end
 | largest((time1,name1,team1)::rest)=(time1,name1,team1);
 
-
 (*Helper function for MkTList, sorts list smallest to largest, used for running events where smallest time wins*)
+
 fun sortsmall([]) =[]
 | sortsmall(list)= smallest(list)::sortsmall(remove(smallest(list),list));
 
@@ -173,7 +251,7 @@ fun mkTList([], r) = []
 else sortlarge(findEvent((athRace, time)::rest)@ mkTList(athletes, scoreRace)) 
  end;
 
- (*scores mkTList for given team*)
+(*scores mkTList for given team*)
 
  fun scoreEvent([], team)= 0
  | scoreEvent(sortedList, team)=
@@ -184,6 +262,15 @@ else sortlarge(findEvent((athRace, time)::rest)@ mkTList(athletes, scoreRace))
  	|helpscore((b,c,d)::rest, points)= if d=team then points+helpscore(rest, nextpoints(points)) else helpscore(rest, nextpoints(points))
  in helpscore(sortedList, 10)
  end;
+ 
+ 
+ fun athleteInfo (Athlete(name, team, (athRace, time)::rest)) =  
+    let 
+        fun buildEventList ([]) = []
+        | buildEventList ((race, t)::erest) = (race,t)::buildEventList(erest)
+    in 
+        (name, team, buildEventList((athRace, time)::rest))
+
 
 (*scores multiple mkTLists for given Team*)
 fun scoreEvents(athleteList, [], team)= 0
@@ -209,4 +296,4 @@ fun sortScoredMeet([])=[]
 
 (*Given list of athletes, events, and teams, scores a hypothetical meet*)
 fun scoreMeet(athleteList, eventList, [])= []
-| scoreMeet(athleteList, eventList, team::teamList)= sortScoredMeet((team, scoreEvents(athleteList, eventList, team))::scoreMeet(athleteList, eventList, teamList));
+| scoreMeet(athleteList, eventList, team::teamList)= sortScoredMeet((team, scoreEvents(athleteList, eventList, team))::scoreMeet(athleteList, eventList, 

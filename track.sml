@@ -1,6 +1,6 @@
 (*This file is the initial ML file for our programming projet*)
 
-(*DATATYPES*)
+(*--------------------------------------------------------------DATATYPES----------------------------------------------------*)
 
 datatype team = Augustana | Carroll | Carthage | Elmhurst | IllinoisWesleyan | Millikin | NorthCentral | NorthPark | Wheaton ;
 
@@ -10,7 +10,7 @@ datatype Event = OneHundred | OneTenHurdles | TwoHundred | FourHundred | FourHun
 
 datatype athlete =Athlete of (string * team * (Event * real) list);
 
-(*VALUES*)
+(*-----------------------------------------------------------HELPFUL VALUES------------------------------------------------*)
 
 (*Wheaton Athletes*)
 
@@ -211,7 +211,7 @@ val totalTeamList = [Augustana, Carroll, Carthage, Elmhurst, IllinoisWesleyan, M
 
 val totalEventList= [OneHundred, OneTenHurdles, TwoHundred, FourHundred, FourHundredHurdles,  EightHundred, FifteenHundred, ThreeThousand, ThreeThousandSteepleChase, FiveK, TenK,  longJump, highJump, tripleJump, poleVault, shotPut, discus, javelin, hammerThrow, Heptathalon, Decathalon];
 
-(*FUNCTIONS*)
+(*---------------------------------------------------------FUNCTIONS----------------------------------------------------------*)
 
 (*Helper function for sortlarge and sortsmall, removes value from mkTList tuple*)
 fun remove((removeTime,removeName,removeTeam), []) = []
@@ -298,3 +298,14 @@ fun sortScoredMeet([])=[]
 (*Given list of athletes, events, and teams, scores a hypothetical meet*)
 fun scoreMeet(athleteList, eventList, [])= []
 | scoreMeet(athleteList, eventList, team::teamList)= sortScoredMeet((team, scoreEvents(athleteList, eventList, team))::scoreMeet(athleteList, eventList, teamList));
+
+(*----------------------------------------------------------EXAMPLE USES------------------------------------------------------*)
+
+(*Example of simulating a race*)
+val eightRace = mkTList(totalAthleteList, EightHundred);
+
+(*Example of scoring a race, how many points any individual team gets*)
+scoreEvent(eightRace, Wheaton);
+
+(*Example of scoring a hypothetical meet*)
+scoreMeet(totalAthleteList, totalEventList, totalTeamList);

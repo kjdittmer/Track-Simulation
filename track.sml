@@ -274,7 +274,7 @@ let  fun contains(a,[])=false
 in deduplicate(grabSchools(TList))
 	end;
 
-fun scoreEvents(TList)=
+fun scoreEventAllTeams(TList)=
 let val teams = schoolList(TList)
 	fun makeList(a, []) = []
 	| makeList(a, b::tail)= (b,scoreEvent(a,b))::makeList(a, tail)
@@ -324,6 +324,9 @@ val eightRace = mkTList(totalAthleteList, EightHundred);
 
 (*Example of scoring a race, how many points any individual team gets*)
 scoreEvent(eightRace, Wheaton);
+
+(*Example of scoring a race for all teams*)
+scoreEventAllTeams(eightRace);
 
 (*Example of scoring a hypothetical meet*)
 scoreMeet(totalAthleteList, totalEventList, totalTeamList);

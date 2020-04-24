@@ -274,15 +274,28 @@ let  fun contains(a,[])=false
 in deduplicate(grabSchools(TList))
 	end;
 
+(*Helper functions for sorting scoreEventAllTeam*)
+fun delete((removeTeam, removeScore), []) = []
+|delete((removeTeam, removeScore), (team1, score1)::rest) = if removeTeam=team1  then delete((removeTeam, removeScore),rest) else (team1, score1):: delete((removeTeam, removeScore), rest);
+
+fun greatest((team1, score1)::(team2, score2)::rest) =
+let fun greater((team3, score3), []) = (team3, score3)
+	| greater((team3, score3), (team4, score4)::tail) = if score3 > score4 then greater((team3, score3), tail) else greater ((team4, score4), tail)
+in greater((team1, score1), (team2, score2)::rest) end
+| greatest((team1, score1)::rest)=(team1, score1);
+
+fun sortHigher([]) =[]
+| sortHigher(list)= greatest(list)::sortHigher(delete(greatest(list),list));
+
+(*scores scores of all teams for an event*)
 fun scoreEventAllTeams(TList)=
 let val teams = schoolList(TList)
 	fun makeList(a, []) = []
 	| makeList(a, b::tail)= (b,scoreEvent(a,b))::makeList(a, tail)
-in makeList(TList, teams)
+in sortHigher(makeList(TList, teams))
 end;
 
-
- fun athleteInfo (Athlete(name, team, (athRace, time)::rest)) =  
+fun athleteInfo (Athlete(name, team, (athRace, time)::rest)) =  
     let 
         fun buildEventList ([]) = []
         | buildEventList ((race, t)::erest) = (race,t)::buildEventList(erest)

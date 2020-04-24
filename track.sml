@@ -263,7 +263,25 @@ else sortlarge(findEvent((athRace, time)::rest)@ mkTList(athletes, scoreRace))
  in helpscore(sortedList, 10)
  end;
  
- 
+
+fun schoolList(TList)=
+let  fun contains(a,[])=false
+ 		|contains(a, b::tail) = if a = b then true else contains(a, tail)
+	fun grabSchools([])=[]
+		| grabSchools((a,b,c)::tail)= c::grabSchools(tail)
+	fun deduplicate([]) = []
+		|deduplicate(a::tail)= if contains(a, tail) then deduplicate(tail) else a::deduplicate(tail)
+in deduplicate(grabSchools(TList))
+	end;
+
+fun scoreEvents(TList)=
+let val teams = schoolList(TList)
+	fun makeList(a, []) = []
+	| makeList(a, b::tail)= (b,scoreEvent(a,b))::makeList(a, tail)
+in makeList(TList, teams)
+end;
+
+
  fun athleteInfo (Athlete(name, team, (athRace, time)::rest)) =  
     let 
         fun buildEventList ([]) = []

@@ -207,17 +207,23 @@ val TylerHughes = Athlete("Tyler Hughes", NorthPark, [(javelin, 48.55)]);
 
 val totalAthleteList = [GrantAdams,ChrisAlbert,PaulAmstutz,EthanBert,ChristianBooth,DavidBradley,PeterBradley,JoeCaraway,IsaiahClauson,RyanCross,DonCrowder,JonathanDahlager,DavidDischinger,JeremeyEarnest,AbramErickson,ThomasEverest,PaulFay,TrevorGabriele, JPGilbert, EthanHarsted, JakeHibben, RobertIrwin, BenJackson, DerekJohanik, LarsJohnson, JonahJones, ElliotKim, MichaelKitchen, JasonKoehler, MichaelLarkin, AndrewLauber, AndyMargason, SethMassot, StephenMathew, DanielMorken, ElijahNitz, AleksNosewicz, EliOdell, KellenPetersen, SimonPeterson, LoganPinkerton, KevinRiley, DrewSmith, RobertSmith, IsaacStruebing, ColinSwanson, JamesVanDrie, PeterVanOs, MaxVeth, ChristianVoetberg, PeterWatson, DanielWetlesen, MarcoAlanis, JuddAnderson, UrvakshAvanthsa, KyleBaus, AndyBaxter,AlexanderBinegar, DanielBornstein, EhrenBraun,  PaulCabrera, NathanCarroll, MatthewContreras, MattCorke, PeytonCouch, DiegoCruz, JackCurrie, KevinDonovan, MichaelJohnson, IanRothery,JoshTeets,CarlSchoenfield, RyanThornton, BrandonWilkerson, ClaytonSommers, MarkVanderheyden, JoshBoulanger, MasonWright, JoshMathis, CodyWheeler, RyanGanson, AaronKurth, AlexNavin, GrantMarton, SpencerKirsteatter, MichaelMirkes, KyleAdams, DavidLembke, AJPetersen, DavidGilbert, DavidBurgess, StevenHermsen, PJLeClaire, AustinHarter, LucasLieb, MichaelSchantek, CamrenHoward, LoganEngberg, AlassaneGuisse, JaredHumphrey, ConnorBell, IsaiahBrown, AaronAustin, JustinParbs, JakeTahaney, JoeRivas, JuanCastaneda, MattTobin, IanPerkins, JacobBoyko, JakeMammosser, MichaelHones, DylanRuskin, JeremyGlickman, StevenRaybould, MattWagner, PrithviRajBandaru, DavidHorn, SethBorrowman, PatrickFoster, EthanKett, BryanWorby, MarqusHarvey, ColeParaday, JakeWilliams, LeeLieser, DavisNguy, ChristianZenon, EthanMeyer, BenKuxmann, TaijhanNelson, DaltonCollins, GarrettJones, ColeLewis, JoeyDavies, MarshunHart, EthanMeyer, KemondMurray, DaltonLong, JoeyDavies, AvanteRivers, MichaelStanley, PeytonPiron, BrendonSebastian, MichaelAnderson, DhruvilPatel, KyleHilton, ErikMusgrave, ZackMichael, MichaelLeBlanc, IzaiahWebb, JavonKunkel, ChristopherGrady, LiamSullivan, ElijahGreen, VinceOlenjniczak, LiamDoran, JoseBarrio, JoeClifton, MitchellKoeckeritz, GeorgeCorey, TylerHughes];
 
+(*Total List of Teams*)
+
 val totalTeamList = [Augustana, Carroll, Carthage, Elmhurst, IllinoisWesleyan, Millikin, NorthCentral, NorthPark, Wheaton];
 
-val totalEventList= [OneHundred, OneTenHurdles, TwoHundred, FourHundred, FourHundredHurdles,  EightHundred, FifteenHundred, ThreeThousand, ThreeThousandSteepleChase, FiveK, TenK,  longJump, highJump, tripleJump, poleVault, shotPut, discus, javelin, hammerThrow, Heptathalon, Decathalon];
+(*Total List of Events*)
+
+val totalEventList= [OneHundred, OneTenHurdles, TwoHundred, FourHundred, FourHundredHurdles, EightHundred, FifteenHundred, ThreeThousand, ThreeThousandSteepleChase, FiveK, TenK, longJump, highJump, tripleJump, poleVault, shotPut, discus, javelin, hammerThrow, Heptathalon, Decathalon];
 
 (*---------------------------------------------------------FUNCTIONS----------------------------------------------------------*)
 
 (*Helper function for sortlarge and sortsmall, removes value from mkTList tuple*)
+
 fun remove((removeTime,removeName,removeTeam), []) = []
 |remove((removeTime,removeName,removeTeam), (time1,name1,team1)::rest) = if removeName=name1  then remove((removeTime,removeName,removeTeam),rest) else (time1,name1,team1):: remove((removeTime,removeName,removeTeam), rest);
 
 (*Helper function for sortsmall, finds smallest value in mkTList tuple*)
+
 fun smallest((time1,name1,team1)::(time2,name2,team2)::rest) =
 let fun smaller((time3,name3,team3), []) = (time3,name3,team3)
 	| smaller((time3,name3,team3), (time4,name4,team4)::tail) = if round(time3*100.0) < round(time4*100.0) then smaller((time3,name3,team3), tail) else smaller ((time4,name4, team4), tail)
@@ -225,6 +231,7 @@ in smaller((time1,name1,team1), (time2,name2,team2)::rest) end
 | smallest((time1,name1,team1)::rest)=(time1,name1,team1);
 
 (*Helper function for sortlarge, finds largest value in mkTList tuple*)
+
 fun largest((time1,name1,team1)::(time2,name2,team2)::rest) =
 let fun larger((time3,name3,team3), []) = (time3,name3,team3)
 	| larger((time3,name3,team3), (time4,name4,team4)::tail) = if round(time3*100.0) > round(time4*100.0) then larger((time3,name3,team3), tail) else larger ((time4,name4, team4), tail)
@@ -237,10 +244,12 @@ fun sortsmall([]) =[]
 | sortsmall(list)= smallest(list)::sortsmall(remove(smallest(list),list));
 
 (*Helper function for mkTList, sorts list from largest to smallest, used for field events where largest distance wins*)
+
 fun sortlarge([]) =[]
 | sortlarge(list)= largest(list)::sortlarge(remove(largest(list),list));
 
 (*Function that takes list of athletes and event and returns a list of times, names, and teams in said event*)
+
 fun mkTList([], r) = []
   | mkTList (Athlete(name, team, (athRace, time)::rest)::athletes, scoreRace) =
 	  let fun findEvent([])= []
@@ -275,6 +284,7 @@ in deduplicate(grabSchools(TList))
 	end;
 
 (*Helper functions for sorting scoreEventAllTeam*)
+
 fun delete((removeTeam, removeScore), []) = []
 |delete((removeTeam, removeScore), (team1, score1)::rest) = if removeTeam=team1  then delete((removeTeam, removeScore),rest) else (team1, score1):: delete((removeTeam, removeScore), rest);
 
@@ -288,12 +298,15 @@ fun sortHigher([]) =[]
 | sortHigher(list)= greatest(list)::sortHigher(delete(greatest(list),list));
 
 (*scores scores of all teams for an event*)
+
 fun scoreEventAllTeams(TList)=
 let val teams = schoolList(TList)
 	fun makeList(a, []) = []
 	| makeList(a, b::tail)= (b,scoreEvent(a,b))::makeList(a, tail)
 in sortHigher(makeList(TList, teams))
 end;
+
+(*Returns the athlete's history*)
 
 fun athleteInfo (Athlete(name, team, (athRace, time)::rest)) =  
     let 
@@ -303,8 +316,8 @@ fun athleteInfo (Athlete(name, team, (athRace, time)::rest)) =
         (name, team, buildEventList((athRace, time)::rest))
     end;
 
-
 (*scores multiple mkTLists for given Team*)
+
 fun scoreEvents(athleteList, [], team)= 0
 |scoreEvents(athleteList, event::eventList, team)= scoreEvent(mkTList(athleteList, event), team) +scoreEvents(athleteList, eventList, team);
 
@@ -314,8 +327,8 @@ fun removeScore((removeTeam, removePoints),[]) = []
 |removeScore((removeTeam, removePoints),(teamName, teamScore)::scoredMeet) = if teamName = removeTeam then removeScore((removeTeam, removePoints),scoredMeet) else (teamName, teamScore)::removeScore((removeTeam, removePoints),scoredMeet);
 
 (*Helper Function for sortScored Meet, finds best score from list produced by scoreMeet*)
-fun 
-bestTeam((teamName1, teamScore1)::(teamName2, teamScore2)::rest)=
+
+fun bestTeam((teamName1, teamScore1)::(teamName2, teamScore2)::rest)=
 let fun better((teamName3, teamScore3), [])= (teamName3, teamScore3)
 |better((teamName3, teamScore3), (teamName4, teamScore4)::tail) = if teamScore3 > teamScore4 then better((teamName3, teamScore3), tail) else better((teamName4, teamScore4), tail)
 in better((teamName1, teamScore1), rest)
@@ -323,6 +336,7 @@ end
 |bestTeam([(teamName1, teamScore1)])=(teamName1, teamScore1);
 
 (*Helper Function for Score Meet, sorts teams and scores from best to worst*)
+
 fun sortScoredMeet([])=[]
 | sortScoredMeet(scoreList)= bestTeam(scoreList)::sortScoredMeet(removeScore(bestTeam(scoreList),scoreList));
 
@@ -332,6 +346,7 @@ fun getTeams([])=[]
 | getTeams(Athlete(a,b,c)::rest)= if athleteListContains(b, rest) then getTeams(rest) else b::getTeams(rest);
 
 (*Given list of athletes, events, and teams, scores a hypothetical meet*)
+
 fun scoreMeet(athletes, events)=
 	let val teams = getTeams(athletes)
 	fun helper(athleteList, eventList, []) = []
@@ -340,6 +355,9 @@ fun scoreMeet(athletes, events)=
 	end;
 
 (*----------------------------------------------------------EXAMPLE USES------------------------------------------------------*)
+
+(*Example for finding an athlete's history (times, scores etc.)*)
+athleteInfo(JoeCaraway);
 
 (*Example of simulating a race*)
 val eightRace = mkTList(totalAthleteList, EightHundred);

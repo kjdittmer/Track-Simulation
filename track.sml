@@ -326,9 +326,18 @@ end
 fun sortScoredMeet([])=[]
 | sortScoredMeet(scoreList)= bestTeam(scoreList)::sortScoredMeet(removeScore(bestTeam(scoreList),scoreList));
 
+fun athleteListContains(a,[])=false
+	|athleteListContains(a, Athlete(b,c,d)::tail) = if a = c then true else athleteListContains(a, tail);
+fun getTeams([])=[]
+| getTeams(Athlete(a,b,c)::rest)= if athleteListContains(b, rest) then getTeams(rest) else b::getTeams(rest);
+
 (*Given list of athletes, events, and teams, scores a hypothetical meet*)
-fun scoreMeet(athleteList, eventList, [])= []
-| scoreMeet(athleteList, eventList, team::teamList)= sortScoredMeet((team, scoreEvents(athleteList, eventList, team))::scoreMeet(athleteList, eventList, teamList));
+fun scoreMeet(athletes, events)=
+	let val teams = getTeams(athletes)
+	fun helper(athleteList, eventList, []) = []
+		|helper(athleteList, eventList, team::teamList)= sortScoredMeet((team, scoreEvents(athleteList, eventList, team))::helper(athleteList, eventList, teamList))
+	in helper(athletes, events, teams)
+	end;
 
 (*----------------------------------------------------------EXAMPLE USES------------------------------------------------------*)
 
@@ -342,4 +351,4 @@ scoreEvent(eightRace, Wheaton);
 scoreEventAllTeams(eightRace);
 
 (*Example of scoring a hypothetical meet*)
-scoreMeet(totalAthleteList, totalEventList, totalTeamList);
+scoreMeet(totalAthleteList, totalEventList);

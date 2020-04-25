@@ -5,7 +5,7 @@
 datatype team = Augustana | Carroll | Carthage | Elmhurst | IllinoisWesleyan | Millikin | NorthCentral | NorthPark | Wheaton ;
 
 
-datatype Event = OneHundred | OneTenHurdles | TwoHundred | FourHundred | FourHundredHurdles | EightHundred | FifteenHundred | ThreeThousand | ThreeThousandSteepleChase | FiveK | TenK | longJump | highJump | tripleJump  | poleVault |shotPut | discus | javelin | hammerThrow |Heptathalon | Decathalon;
+datatype Event = OneHundred | OneTenHurdles | TwoHundred | FourHundred | FourHundredHurdles | EightHundred | FifteenHundred | ThreeThousand | ThreeThousandSteepleChase | FiveK | TenK | longJump | highJump | tripleJump  | poleVault |shotPut | discus | javelin | hammerThrow |Heptathlon | Decathlon;
 
 
 datatype athlete =Athlete of (string * team * (Event * real) list);
@@ -15,14 +15,14 @@ datatype athlete =Athlete of (string * team * (Event * real) list);
 (*Wheaton Athletes*)
 
 val GrantAdams = Athlete("Grant Adams", Wheaton,[(EightHundred, 1.56), (FifteenHundred, 4.15), (ThreeThousandSteepleChase, 10.32)]);
-val ChrisAlbert = Athlete("Chris Albert", Wheaton, [(OneHundred, 11.1), (FourHundred, 52.10), (FifteenHundred, 5.24), (OneTenHurdles, 19.83), (highJump, 1.58), (poleVault, 3.60), (longJump, 6.19), (shotPut, 9.64), (discus, 29.04), (javelin, 31.42), (Decathalon, 4927.0)]);
+val ChrisAlbert = Athlete("Chris Albert", Wheaton, [(OneHundred, 11.1), (FourHundred, 52.10), (FifteenHundred, 5.24), (OneTenHurdles, 19.83), (highJump, 1.58), (poleVault, 3.60), (longJump, 6.19), (shotPut, 9.64), (discus, 29.04), (javelin, 31.42), (Decathlon, 4927.0)]);
 val PaulAmstutz = Athlete("Paul Amstutz", Wheaton, [(TwoHundred, 22.68), (FourHundred, 50.09), (EightHundred, 2.01)]);
 val EthanBert = Athlete("Ethan Bert", Wheaton, [(EightHundred, 2.07)]);
 val ChristianBooth = Athlete("Christian Booth", Wheaton, [(FifteenHundred, 4.58), (ThreeThousand, 10.47)]);
 val DavidBradley = Athlete("David Bradley", Wheaton, [(TwoHundred, 24.9), (poleVault, 4.78)]);
 val PeterBradley = Athlete("Peter Bradley", Wheaton, [(TwoHundred, 26.26), (poleVault, 4.55)]);
 val JoeCaraway = Athlete("Joe Caraway", Wheaton, [(EightHundred, 2.00), (FifteenHundred, 4.12)]);
-val IsaiahClauson = Athlete("Isaiah Clauson", Wheaton, [(TwoHundred, 23.64), (FourHundred, 54.85), (highJump, 1.59), (poleVault, 2.95), (longJump, 6.56), (shotPut, 7.83), (Heptathalon, 3892.0)]);
+val IsaiahClauson = Athlete("Isaiah Clauson", Wheaton, [(TwoHundred, 23.64), (FourHundred, 54.85), (highJump, 1.59), (poleVault, 2.95), (longJump, 6.56), (shotPut, 7.83), (Heptathlon, 3892.0)]);
  val RyanCross = Athlete("Ryan Cross", Wheaton, [(ThreeThousand, 10.12), (FiveK, 17.28)]);
  val DonCrowder = Athlete("Don Crowder", Wheaton, [(TwoHundred, 24.41),(highJump, 1.93)]);
  val JonathanDahlager = Athlete("Jonathan Dalager", Wheaton, [(shotPut, 12.79), (discus, 42.83), (javelin, 37.50)]);
@@ -58,7 +58,7 @@ val LoganPinkerton = Athlete("Logan Pinkerton", Wheaton, [(TwoHundred, 23.35), (
 val KevinRiley = Athlete("Kevin Riley", Wheaton, [(EightHundred, 2.0), (FifteenHundred, 4.05), (ThreeThousand, 8.3), (ThreeThousandSteepleChase, 9.38)]);
 val DrewSmith = Athlete("Drew Smith", Wheaton, [(shotPut, 15.45), (discus, 41.54), (hammerThrow, 28.63)]);
 val MitchellSmith = Athlete("Mitchell Smith", Wheaton, [(EightHundred, 2.1), (FifteenHundred, 4.27), (ThreeThousand, 9.24), (FiveK, 16.26)]);
-val RobertSmith = Athlete("RobertSmith", Wheaton, [(OneHundred, 11.94), (TwoHundred, 24.33), (FourHundred, 51.84),(FifteenHundred, 4.43),(OneTenHurdles, 16.75), (highJump, 1.75), (poleVault, 3.8), (longJump, 6.27), (shotPut, 11.52), (discus, 38.22), (javelin, 49.04), (Heptathalon, 4585.0), (Decathalon, 6139.0)]);
+val RobertSmith = Athlete("RobertSmith", Wheaton, [(OneHundred, 11.94), (TwoHundred, 24.33), (FourHundred, 51.84),(FifteenHundred, 4.43),(OneTenHurdles, 16.75), (highJump, 1.75), (poleVault, 3.8), (longJump, 6.27), (shotPut, 11.52), (discus, 38.22), (javelin, 49.04), (Heptathlon, 4585.0), (Decathlon, 6139.0)]);
 val IsaacStruebing = Athlete("Isaac Struebing", Wheaton, [(EightHundred, 2.01)]);
 val ColinSwanson = Athlete("Colin Swanson", Wheaton, [(highJump, 1.82)]);
 val JamesVanDrie= Athlete("James VanDrie", Wheaton, [(discus, 37.56)]);
@@ -77,7 +77,7 @@ val BrandonWilkerson = Athlete("Brandon Wilkerson", Augustana, [(FiveK, 14.52), 
 val CarlSchoenfield = Athlete("Carl Schoenfield", Augustana, [(TenK, 32.07)]);
 val JuddAnderson = Athlete("Judd Anderson", Augustana, [(OneTenHurdles, 15.44)]);
 val ClaytonSommers = Athlete("Clayton Sommers", Augustana, [(FourHundredHurdles, 53.55)]);
-val RyanThornton = Athlete("Ryan Thornton", Augustana, [(highJump, 2.03), (Decathalon, 6010.0)]);
+val RyanThornton = Athlete("Ryan Thornton", Augustana, [(highJump, 2.03), (Decathlon, 6010.0)]);
 val MarkVanderheyden = Athlete("Mark Vanderheyden", Augustana, [(poleVault, 4.50)]);
 val JoshBoulanger = Athlete("Josh Boulanger", Augustana, [(longJump, 6.61)]);
 val MasonWright = Athlete("Mason Wright", Augustana, [(tripleJump, 14.00)]);
@@ -86,7 +86,7 @@ val CodyWheeler = Athlete("Cody Wheeler", Augustana, [(hammerThrow, 63.83)]);
 val RyanGanson = Athlete("Ryan Ganson", Augustana, [(javelin, 59.98)]);
 val MarcoAlanis = Athlete("Marco Alanis", Augustana, [(FifteenHundred, 4.2), (ThreeThousand, 9.14), (FiveK, 16.03), (TenK, 33.44)]);
 val MichaelAumuller = Athlete("Michael Amuller", Augustana, [(ThreeThousand, 9.55)]);
-val UrvakshAvanthsa = Athlete("Urvaksh Avanthsa", Augustana, [(TwoHundred, 24.86), (FourHundred, 57.29), (FifteenHundred, 4.57), (OneTenHurdles, 18.73), (highJump, 1.77), (poleVault, 3.45), (longJump, 5.94), (shotPut, 9.44), (discus, 26.65), (javelin, 43.45), (Heptathalon, 3801.0), (Decathalon, 4784.0)]);
+val UrvakshAvanthsa = Athlete("Urvaksh Avanthsa", Augustana, [(TwoHundred, 24.86), (FourHundred, 57.29), (FifteenHundred, 4.57), (OneTenHurdles, 18.73), (highJump, 1.77), (poleVault, 3.45), (longJump, 5.94), (shotPut, 9.44), (discus, 26.65), (javelin, 43.45), (Heptathlon, 3801.0), (Decathlon, 4784.0)]);
 val KyleBaus = Athlete("Kyle Baus", Augustana, [(poleVault, 4.15), (longJump, 5.28)]);
 val AndyBaxter = Athlete("Andy Baxter", Augustana, [(OneHundred, 12.23), (TwoHundred, 25.24)]);
 val AlexanderBinegar = Athlete("Alexander Binegar", Augustana, [(FourHundred, 58.53), (FifteenHundred, 4.38), (ThreeThousand, 9.45), (FiveK, 16.52), (TenK, 36.04)]);
@@ -97,10 +97,10 @@ val PaulCabrera = Athlete("Paul Cabrera", Augustana, [(OneHundred, 12.23), (TwoH
 val NathanCarroll = Athlete("Nathan Carroll", Augustana, [(TwoHundred, 26.26), (longJump, 5.44), (tripleJump, 11.27)]);
 val MatthewContreras = Athlete("MatthewContreras", Augustana, [(FifteenHundred, 4.23), (ThreeThousand, 9.14), (FiveK, 16.03)]);
 val MattCorke = Athlete("Matt Corke", Augustana, [(ThreeThousand, 10.33), (FiveK, 18.06)]);
-val PeytonCouch = Athlete("Peyton Couch", Augustana, [(OneHundred, 11.56), (TwoHundred, 23.42), (FourHundred, 53.33), (FifteenHundred, 4.57), (OneTenHurdles, 16.91), (FourHundredHurdles, 55.32), (highJump, 1.66), (poleVault, 3.85), (longJump, 6.3), (shotPut, 9.13), (discus, 24.54), (javelin, 35.23), (Heptathalon, 4345.0), (Decathalon, 5273.0)]);
+val PeytonCouch = Athlete("Peyton Couch", Augustana, [(OneHundred, 11.56), (TwoHundred, 23.42), (FourHundred, 53.33), (FifteenHundred, 4.57), (OneTenHurdles, 16.91), (FourHundredHurdles, 55.32), (highJump, 1.66), (poleVault, 3.85), (longJump, 6.3), (shotPut, 9.13), (discus, 24.54), (javelin, 35.23), (Heptathlon, 4345.0), (Decathlon, 5273.0)]);
 val DiegoCruz = Athlete("Diego Cruz", Augustana, [(ThreeThousand, 9.37), (FiveK, 17.43)]);
 val JackCurrie = Athlete("Jack Currie", Augustana, [(shotPut, 14.6), (discus, 36.93)]);
-val KevinDonovan = Athlete("Kevin Donovan", Augustana, [(OneHundred, 12.06), (FourHundred, 53.16), (FifteenHundred,4.31), (OneTenHurdles, 16.9), (highJump, 1.75), (poleVault, 4.15), (longJump, 5.61), (shotPut, 9.14), (discus, 21.92), (javelin, 40.40), (Heptathalon, 3885.0), (Decathalon, 5349.0)]);
+val KevinDonovan = Athlete("Kevin Donovan", Augustana, [(OneHundred, 12.06), (FourHundred, 53.16), (FifteenHundred,4.31), (OneTenHurdles, 16.9), (highJump, 1.75), (poleVault, 4.15), (longJump, 5.61), (shotPut, 9.14), (discus, 21.92), (javelin, 40.40), (Heptathlon, 3885.0), (Decathlon, 5349.0)]);
 
 (*Carroll Athletes*)
 
@@ -126,13 +126,13 @@ val CamrenHoward = Athlete("Camren Howard", Carthage, [(EightHundred, 1.53),(Fif
 val LoganEngberg = Athlete("Logan Engberg", Carthage, [(FiveK, 14.57), (TenK, 30.33)]);
 val AlassaneGuisse = Athlete("Alassane Guisse", Carthage, [(OneTenHurdles, 16.65)]);
 val JaredHumphrey = Athlete("Jared Humphrey", Carthage, [(FourHundredHurdles, 57.25)]);
-val ConnorBell = Athlete("Connor Bell", Carthage, [(highJump, 1.88), (poleVault, 3.30),(javelin, 45.42),(Decathalon, 5534.0)]);
+val ConnorBell = Athlete("Connor Bell", Carthage, [(highJump, 1.88), (poleVault, 3.30),(javelin, 45.42),(Decathlon, 5534.0)]);
 val IsaiahBrown = Athlete("Isaiah Brown", Carthage, [(longJump, 6.56), (tripleJump, 13.06)]);
 val AaronAustin = Athlete("Aaron Austin", Carthage, [(shotPut, 15.16), (discus, 50.35),(hammerThrow, 52.89)]);
 
 (*Elmhurst Athletes*)
 
-val JustinParbs = Athlete("Justin Parbs", Elmhurst, [(OneHundred, 11.58),(OneTenHurdles, 17.67), (Decathalon, 4618.0),(longJump, 5.75)]);
+val JustinParbs = Athlete("Justin Parbs", Elmhurst, [(OneHundred, 11.58),(OneTenHurdles, 17.67), (Decathlon, 4618.0),(longJump, 5.75)]);
 val JakeTahaney = Athlete("Jake Tahaney", Elmhurst, [(TwoHundred, 23.73),(FourHundred, 52.14)]);
 val JoeRivas = Athlete("Joe Rivas", Elmhurst, [(EightHundred, 2.00),(FifteenHundred, 4.07)]);
 val JuanCastaneda = Athlete("Juan Castaneda", Elmhurst, [(FiveK, 16.18)]);
@@ -158,7 +158,7 @@ val MarqusHarvey = Athlete("Marqus Harvey", IllinoisWesleyan, [(tripleJump, 12.9
 val ColeParaday = Athlete("Cole Paraday", IllinoisWesleyan, [(shotPut, 14.68), (discus, 44.95)]);
 val JakeWilliams = Athlete("Jake Williams", IllinoisWesleyan, [(hammerThrow, 49.88)]);
 val LeeLieser = Athlete("Lee Lieser", IllinoisWesleyan, [(javelin, 39.78)]);
-val DavisNguy = Athlete("Davis Nguy", IllinoisWesleyan, [(Decathalon, 4510.0)]);
+val DavisNguy = Athlete("Davis Nguy", IllinoisWesleyan, [(Decathlon, 4510.0)]);
 
 (*Millikin Athletes*)
 
@@ -169,7 +169,7 @@ val TaijhanNelson = Athlete("Taijhan Nelson", Millikin, [(FiveK, 25.47)]);
 val DaltonCollins = Athlete("Dalton Collins", Millikin, [(OneTenHurdles, 15.18), (FourHundredHurdles, 55.05)]);
 val GarrettJones = Athlete("Garrett Jones", Millikin, [(ThreeThousandSteepleChase, 10.36)]);
 val ColeLewis = Athlete("Cole Lewis", Millikin, [(highJump, 1.91)]);
-val JoeyDavies = Athlete("Joey Davies", Millikin, [(poleVault, 3.30),(Decathalon, 5265.0)]);
+val JoeyDavies = Athlete("Joey Davies", Millikin, [(poleVault, 3.30),(Decathlon, 5265.0)]);
 val MarshunHart = Athlete("Marshun Hart", Millikin, [(longJump, 6.67)]);
 val EthanMeyer = Athlete("EthanMeyer", Millikin, [(tripleJump, 13.60)]);
 val KemondMurray = Athlete("Kemond Murray", Millikin, [(shotPut, 13.14), (discus, 38.13)]);
@@ -197,7 +197,7 @@ val LiamDoran = Athlete("Liam Doran", NorthCentral, [(javelin, 56.41)]);
 
 (*North Park Athletes*)
 
-val JoseBarrio = Athlete("Jose Barrio", NorthPark, [(OneHundred, 11.30), (TwoHundred, 23.39), (FourHundred, 51.21), (OneTenHurdles, 16.51), (poleVault, 2.80), (longJump, 6.67), (discus, 30.23), (Decathalon, 5576.0)]);
+val JoseBarrio = Athlete("Jose Barrio", NorthPark, [(OneHundred, 11.30), (TwoHundred, 23.39), (FourHundred, 51.21), (OneTenHurdles, 16.51), (poleVault, 2.80), (longJump, 6.67), (discus, 30.23), (Decathlon, 5576.0)]);
 val JoeClifton = Athlete("Joe Clifton", NorthPark, [(EightHundred, 2.19), (FifteenHundred, 4.46)]);
 val MitchellKoeckeritz = Athlete("Mitchell Koeckeritz", NorthPark, [(highJump, 1.95)]);
 val GeorgeCorey = Athlete("George Corey", NorthPark, [(shotPut, 13.44), (hammerThrow, 28.93)]);
@@ -213,7 +213,7 @@ val totalTeamList = [Augustana, Carroll, Carthage, Elmhurst, IllinoisWesleyan, M
 
 (*Total List of Events*)
 
-val totalEventList= [OneHundred, OneTenHurdles, TwoHundred, FourHundred, FourHundredHurdles, EightHundred, FifteenHundred, ThreeThousand, ThreeThousandSteepleChase, FiveK, TenK, longJump, highJump, tripleJump, poleVault, shotPut, discus, javelin, hammerThrow, Heptathalon, Decathalon];
+val totalEventList= [OneHundred, OneTenHurdles, TwoHundred, FourHundred, FourHundredHurdles, EightHundred, FifteenHundred, ThreeThousand, ThreeThousandSteepleChase, FiveK, TenK, longJump, highJump, tripleJump, poleVault, shotPut, discus, javelin, hammerThrow, Heptathlon, Decathlon];
 
 (*---------------------------------------------------------FUNCTIONS----------------------------------------------------------*)
 
